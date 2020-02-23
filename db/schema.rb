@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_23_005702) do
+ActiveRecord::Schema.define(version: 2020_02_23_010132) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,11 @@ ActiveRecord::Schema.define(version: 2020_02_23_005702) do
     t.string "tag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "ads_tags", id: false, force: :cascade do |t|
+    t.bigint "ad_id", null: false
+    t.bigint "tag_id", null: false
   end
 
   create_table "categories", force: :cascade do |t|

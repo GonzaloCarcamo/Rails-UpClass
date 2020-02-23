@@ -16,10 +16,18 @@
     <% @ads.each do |ad| %>
       <tr>
         <td><%= ad.title %></td>
+        
         <td><%= ad.category %></td>
-        <td><%= ad.tag %></td>
+        
+        <td><% ad.tags.each do |tag| %>
+          [<%= tag.title %>]
+          <% end %>
+        </td>
+        
         <td><%= link_to 'Show', ad %></td>
+        
         <td><%= link_to 'Edit', edit_ad_path(ad) %></td>
+        
         <td><%= link_to 'Destroy', ad, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

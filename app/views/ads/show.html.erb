@@ -12,7 +12,9 @@
 
 <p>
   <strong>Tag:</strong>
-  <%= @ad.tag %>
+  <% @ad.tags.each do |tag| %>
+  [<%= tag.title%>]
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_ad_path(@ad) %> |
