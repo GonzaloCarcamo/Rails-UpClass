@@ -22,9 +22,13 @@
     prompt: 'selecciona una categoría'%>
   </div>
 
-  <div class="field">
-    <%= form.label :tag %>
-    <%= form.text_field :tag %>
+  <div class="form-group">
+    <% @tags.each do |tag|%>
+        <%= form.fields_for :ads_tags do |t|%>
+        <%= t.label tag.title %>
+        <%= t.check_box tag.id%>
+      <% end%>
+    <% end%>
   </div>
 
   <div class="actions">

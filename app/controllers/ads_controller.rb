@@ -16,6 +16,7 @@ class AdsController < ApplicationController
   def new
     @ad = Ad.new
     @categories = Category.pluck(:title)
+    @tags = Tag.all
   end
 
   # GET /ads/1/edit
