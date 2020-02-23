@@ -2,10 +2,10 @@
 
 <h1 class="text-center">Últimos Anuncios</h1>
 
-
-
     <div class="card">
+      
       <% @ads.each do |ad| %>
+      
       <div class="card-body">
         
         <h2 class="card-title">
@@ -17,13 +17,23 @@
         <h3 class="card-subtitle mb-2 text-muted"><%= ad.category %></h3>
     
         <h5 class="card-text"><%= ad.title %>.</h5>
-    
+  
+        <button type="button" class="btn btn-light">
         <%= link_to 'Show', ad %>
+        </button>
+        
+        <button type="button" class="btn btn-light">
         <%= link_to 'Edit', edit_ad_path(ad) %>
+        </button>
+        
+        <button type="button" class="btn btn-light">
         <%= link_to 'Destroy', ad, method: :delete, data: { confirm: 'Are you sure?' } %>
-      </div>
-      <% end %>
-    </div> <br>
+        </button>
 
+      </div>
+      
+      <% end %>
+    
+    </div> 
 
 
