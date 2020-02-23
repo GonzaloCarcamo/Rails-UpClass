@@ -1,10 +1,12 @@
 class AdsController < ApplicationController
-  before_action :set_ad, only: [:show, :edit, :update, :destroy]
+  before_action :set_ad, only: [:show, :edit, :update, :destroy, :delete_image]
+  before_action :authenticate_user!
 
   # GET /ads
   # GET /ads.json
   def index
     @ads = Ad.all
+    
   end
 
   # GET /ads/1
@@ -68,6 +70,17 @@ class AdsController < ApplicationController
     end
   end
 
+  def delete_image
+    begin
+      @image = ActiveStorage::Attachment.find(params[:image_id])
+      @image.purge
+        redirect_to ad_path(@ad), notice: 'Imagen eliminada con éxito'
+        rescue ActiveRecord::RecordNotFound
+      redirect_to ad_path(@ad), alert: 'Error al eliminar la imagen'
+    end
+  end
+   
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_ad
@@ -76,6 +89,6 @@ class AdsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def ad_params
-      params.require(:ad).permit(:title, :category, :tag)
+      params.require(:ad).permit(:title, :category, :tag, :image, :instruction)
     end
 end

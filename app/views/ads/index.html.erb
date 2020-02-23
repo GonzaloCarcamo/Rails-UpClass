@@ -1,39 +1,37 @@
 <p id="notice"><%= notice %></p>
 
 <h1 class="text-center">Últimos Anuncios</h1>
+      
+  <% @ads.each do |ad| %>
 
-    <div class="card">
-      
-      <% @ads.each do |ad| %>
-      
-      <div class="card-body">
-        
-        <h2 class="card-title">
-          <% ad.tags.each do |tag| %>
+  <main role="main" class="container">
+    <div class="jumbotron">
+      <h2><% ad.tags.each do |tag| %>
           [<%= tag.title %>]
-          <% end %>
-        </h2>
-    
-        <h3 class="card-subtitle mb-2 text-muted"><%= ad.category %></h3>
-    
-        <h5 class="card-text"><%= ad.title %>.</h5>
-  
-        <button type="button" class="btn btn-light">
-        <%= link_to 'Show', ad %>
-        </button>
-        
-        <button type="button" class="btn btn-light">
-        <%= link_to 'Edit', edit_ad_path(ad) %>
-        </button>
-        
-        <button type="button" class="btn btn-light">
-        <%= link_to 'Destroy', ad, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </button>
-
-      </div>
+          <% end %></h2>
       
-      <% end %>
+      <h3 class="card-subtitle mb-2 text-muted"><%= ad.category %></h3>
     
-    </div> 
+      <h5 class="card-text"><%= ad.title %>.</h5>
+     
+      <button type="button" class="btn btn-light">
+      <%= link_to 'Show', ad %>
+      </button>
+        
+      <button type="button" class="btn btn-light">
+      <%= link_to 'Edit', edit_ad_path(ad) %>
+      </button>
+        
+      <button type="button" class="btn btn-light">
+      <%= link_to 'Destroy', ad, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </button>
+
+
+    </main>
+
+    <% end %>
+
+      
+
 
 

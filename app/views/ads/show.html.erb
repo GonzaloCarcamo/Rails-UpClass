@@ -1,21 +1,37 @@
+
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @ad.title %>
-</p>
+ <div class="card col-lg-4">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" 
+        preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Placeholder</title>
+        <rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+        
+        <h2>Perfil</h2>
+        
+        <h3> <% @ad.tags.each do |tag| %>
+            [<%= tag.title%>]
+            <% end %>
+        </h3>
+        
+        <h4> <strong></strong>"<%= @ad.title %>"</h4>
 
-<p>
-  <strong>Category:</strong>
-  <%= @ad.category %>
-</p>
+        <tbody>
+        <tr>
+        
+        <td><i class="fas fa-file-pdf fa-3x"></i>
+             <a href="<%= rails_blob_path(@ad.instruction, disposition: 'attachment')%>">Descargar PDF</a> 
+        </td>
 
-<p>
-  <strong>Tag:</strong>
-  <% @ad.tags.each do |tag| %>
-  [<%= tag.title%>]
-  <% end %>
-</p>
+        <td><i class="fab fa-youtube fa-3x"></i></strong><%= @ad.link1 %>
+        </td>
+        
+        <td><%= link_to 'Edit', edit_ad_path(@ad)%></td> 
+        <td><%= link_to 'Back', ads_path %></td>
 
-<%= link_to 'Edit', edit_ad_path(@ad) %> |
-<%= link_to 'Back', ads_path %>
+        </tr>
+
+        </tbody>
+
+  </div>
+  
