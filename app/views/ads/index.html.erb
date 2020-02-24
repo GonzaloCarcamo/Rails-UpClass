@@ -1,10 +1,23 @@
 <p id="notice"><%= notice %></p>
 
 <h1 class="text-center">Últimos Anuncios</h1>
-      
+
+<br>
+
+      <form class="form-inline my-2 my-lg-0 container">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+
+    <br>
+    
+
   <% @ads.each do |ad| %>
 
+  
+
   <main role="main" class="container">
+
     <div class="jumbotron">
       <h2><% ad.tags.each do |tag| %>
           [<%= tag.title %>]
@@ -17,21 +30,23 @@
       <button type="button" class="btn btn-light">
       <%= link_to 'Show', ad %>
       </button>
-        
+
+      <% if can? :edit, ad %>  
       <button type="button" class="btn btn-light">
       <%= link_to 'Edit', edit_ad_path(ad) %>
       </button>
-        
+      <% end %>
+      
+      <% if can? :destroy, ad %>
       <button type="button" class="btn btn-light">
-      <%= link_to 'Destroy', ad, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to 'Eliminar', ad, method: :delete, data: { confirm: 'Are you sure?' } %>
       </button>
+      <% end %> 
 
 
     </main>
 
     <% end %>
-
-      
 
 
 

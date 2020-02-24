@@ -7,7 +7,6 @@ class AdsController < ApplicationController
   # GET /ads.json
   def index
     @ads = Ad.all
-    @tags = Tag.all
     
   end
 
@@ -25,6 +24,9 @@ class AdsController < ApplicationController
 
   # GET /ads/1/edit
   def edit
+    @ad = Ad.find(params[:id])
+    @categories = Category.pluck(:title)
+    @tags = Tag.all
 
   end
 
