@@ -24,10 +24,11 @@
 
         <tbody>
         <tr>
-        
+        <% if @ad.instruction.attached? %>
         <td><i class="fas fa-file-pdf fa-3x"></i>
              <a href="<%= rails_blob_path(@ad.instruction, disposition: 'attachment')%>">Descargar PDF</a> 
         </td>
+        <% end %>
 
         <td><i class="fab fa-youtube fa-3x"></i></strong><%= @ad.link1 %>
         </td>
@@ -41,11 +42,3 @@
 
   </div>
 
-
-
-    <div class="jumbotron">
-
-    </div>
- 
- 
-  
