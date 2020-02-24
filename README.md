@@ -1,24 +1,20 @@
-# README
+# UPCLASS
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Aplicación permitirá ofrecer clases particulares, previo registro de datos.
+Otros usuarios podrán ver todos los anuncios ingresados y su detalle. 
+Usuarios podrán contactarse para concretar clases.
 
-Things you may want to cover:
+Generación de projecto en Rails con base de datos Postgresql.
 
-* Ruby version
+Diagrama conceptual:
 
-* System dependencies
+![Screenshot](diagrama-conceptual.png)
 
-* Configuration
+Diagrama lógico
 
-* Database creation
+![Screenshot](diagrama-lógico.png)
 
-* Database initialization
+Link Trello https://trello.com/b/AF26cmYo/upclass
 
-* How to run the test suite
+Aplicación generada con modelo CRUD.
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

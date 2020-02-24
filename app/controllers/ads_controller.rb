@@ -1,11 +1,13 @@
 class AdsController < ApplicationController
   before_action :set_ad, only: [:show, :edit, :update, :destroy, :delete_image]
   before_action :authenticate_user!
+  load_and_authorize_resource
 
   # GET /ads
   # GET /ads.json
   def index
     @ads = Ad.all
+    @tags = Tag.all
     
   end
 
@@ -23,12 +25,14 @@ class AdsController < ApplicationController
 
   # GET /ads/1/edit
   def edit
+
   end
 
   # POST /ads
   # POST /ads.json
   def create
     @ad = Ad.new(ad_params)
+    @ad.user = current_user
   
     params[:ad][:ads_tags].each do |id, value|
       @ad.tags.push Tag.find(id) if value == '1'
@@ -40,6 +44,8 @@ class AdsController < ApplicationController
         format.html { redirect_to @ad, notice: 'Ad was successfully created.' }
         format.json { render :show, status: :created, location: @ad }
       else
+        @categories = Category.pluck(:title)
+        @tags = Tag.all
         format.html { render :new }
         format.json { render json: @ad.errors, status: :unprocessable_entity }
       end

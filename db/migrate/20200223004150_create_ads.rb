@@ -6,6 +6,7 @@ class CreateAds < ActiveRecord::Migration[5.2]
       t.string :tag
       t.string :link1
       t.string :link2
+      t.references :user
       t.timestamps
     end
   end
