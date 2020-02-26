@@ -12,11 +12,11 @@ Mockup
 
 Diagrama conceptual:
 
-![Screenshot](diagrama-conceptual.png)
+![Screenshot](modelo-conceptual.png)
 
 Diagrama lógico
 
-![Screenshot](diagrama-lógico.png)
+![Screenshot](modelo-logico.png)
 
 Link Trello https://trello.com/b/AF26cmYo/upclass
 
