@@ -6,6 +6,10 @@ Usuarios podrán contactarse para concretar clases.
 
 Generación de projecto en Rails con base de datos Postgresql.
 
+Mockup
+
+![Screenshot](mockup.jpg)
+
 Diagrama conceptual:
 
 ![Screenshot](diagrama-conceptual.png)
