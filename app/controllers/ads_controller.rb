@@ -6,8 +6,8 @@ class AdsController < ApplicationController
   # GET /ads
   # GET /ads.json
   def index
-    @ads = Ad.all
-    
+    @ads = Ad.where("category like ?", "%#{params[:q]}%") if params[:q]
+
   end
 
   # GET /ads/1
@@ -35,12 +35,12 @@ class AdsController < ApplicationController
   def create
     @ad = Ad.new(ad_params)
     @ad.user = current_user
-  
+
     params[:ad][:ads_tags].each do |id, value|
       @ad.tags.push Tag.find(id) if value == '1'
-  
+
     end
-  
+
     respond_to do |format|
       if @ad.save
         format.html { redirect_to @ad, notice: 'Ad was successfully created.' }
@@ -87,7 +87,7 @@ class AdsController < ApplicationController
       redirect_to ad_path(@ad), alert: 'Error al eliminar la imagen'
     end
   end
-   
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -99,4 +99,5 @@ class AdsController < ApplicationController
     def ad_params
       params.require(:ad).permit(:title, :category, :tag, :image, :instruction)
     end
+
 end

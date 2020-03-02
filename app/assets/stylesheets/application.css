@@ -1,16 +1,18 @@
 
+
+
 body{
     font-family: 'Oswald', sans-serif;
   }
-  
+
   h1{
     font-size: 5em;
   }
-  
+
   p{
     font-size: 2em;
   }
-  
+
   footer{
     background-color: black;
     color: white;
@@ -20,4 +22,11 @@ body{
   .navbar{
     background-color: #07024A;
   }
-  
+
+  nav{
+    background-color: #07024A;
+  }
+
+li{
+  color: white;
+}

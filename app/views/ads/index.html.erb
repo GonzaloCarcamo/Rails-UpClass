@@ -1,66 +1,18 @@
+
 <p id="notice"><%= notice %></p>
+<form class="" data-remote="true">
+  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q" >
+</form>
 
 
 
-<h1 class="text-center">Últimos Anuncios</h1>
-
-<br>
-
-      <form class="form-inline my-2 my-lg-0 container">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-
-    <br>
 
 
-  <% @ads.each do |ad| %>
+  <h1 class="text-center">Últimos Anuncios</h1>
 
   
 
-  <main role="main" class="container">
 
-    <div class="jumbotron">
-      <h2><% ad.tags.each do |tag| %>
-          [<%= tag.title %>]
-          <% end %></h2>
-
-      <h3 class="card-subtitle mb-2 text-muted"><%= ad.category %></h3>
-    
-      <h5 class="card-text">"<%= ad.title %>."</h5>
-
-      <div class="options, text-right">
-     
-      <button type="button" class="btn btn-light">
-      <%= link_to 'Show', ad %>
-      </button>
-
-      <% if can? :edit, ad %>  
-      <button type="button" class="btn btn-light">
-      <%= link_to 'Edit', edit_ad_path(ad) %>
-      </button>
-      <% end %>
-      
-      <% if can? :destroy, ad %>
-      <button type="button" class="btn btn-light">
-      <%= link_to 'Eliminar', ad, method: :delete, data: { confirm: 'Are you sure?' } %>
-      </button>
-      <% end %> 
-
-      </div>
-
-      <div class="options, text-left">
-
-        <h6><i class="fas fa-life-ring text-success"></i>  muy recomendado! :  10</h6>
-        <h6><i class="far fa-lemon my-3 text-warning"></i>  ni chicha ni limonada: 5</h6>
-        <h6><i class="fas fa-hand-point-down text-danger"></i>  no lo recomiendo: 2</h6>
-
-      </div>
-
-
-    </main>
-
-    <% end %>
-
-
-
+<div id='ads'>
+  <%= render @ads %>
+</div>

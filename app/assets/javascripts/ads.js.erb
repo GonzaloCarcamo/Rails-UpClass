@@ -1,0 +1,15 @@
+$(document).on('turbolinks:load', function() {
+
+  $('[name=q]').on('keyup', function(){
+    var query =$('[name=q]').val()
+
+      if(query.length > 2){
+          $.ajax({
+              type: "GET",
+              url: "/ads",
+              data: { q: query},
+              dataType: "script"
+          })
+      }
+  })
+})
