@@ -3,9 +3,9 @@
   <h2><% ad.tags.each do |tag| %> <%= tag.title %> <% end %></h2>
   <p class="lead"><%= ad.category %></p>
   <p><%= ad.title %></p>
-  <%= link_to 'detalle', ad %> |
+  <%= link_to 'detalle', ad %> 
   <% if can? :edit, ad %>
-  <%= link_to 'editar', edit_ad_path(ad) %> |
+  <%= link_to 'editar', edit_ad_path(ad) %>
   <% end %>
   <% if can? :destroy, ad %>
   <%= link_to 'eliminar', ad, method: :delete, data: { confirm: 'Are you sure?' } %>

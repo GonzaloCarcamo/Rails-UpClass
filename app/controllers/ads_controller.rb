@@ -6,6 +6,7 @@ class AdsController < ApplicationController
   # GET /ads
   # GET /ads.json
   def index
+    @ads = Ad.all
     @ads = Ad.where("category like ?", "%#{params[:q]}%") if params[:q]
 
   end
