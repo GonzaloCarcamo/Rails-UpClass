@@ -2,29 +2,31 @@
 
 <p id="notice"><%= notice %></p>
 
-<h2 class="text-center"><strong>Perfil</strong></h2>
+<h1 class="text-center"><strong>Perfil</strong></h1>
 
   <div>
-       <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-         <div class="col p-4 d-flex flex-column position-static">
+       <div class="row no-gutters border rounded overflow-hidden mb-4 shadow-sm h-md-250 position-relative">
+         <div class="col p-4 position-static">
 
-           <div class="text-right">
-           <% if @ad.instruction.attached? %>
-           <i class="fas fa-file-pdf fa-2x"></i>
-           <a href="<%= rails_blob_path(@ad.instruction, disposition: 'attachment')%>">Descargar PDF</a>
-           <% end %>
 
-           <i class="fab fa-youtube fa-2x"><%= @ad.link1 %></i>
-           <a href="">Mi Canal youtube</a>
 
-           </div>
-
-           <p class="mb-0 my-5">Profe: <strong>Gonzalo Cárcamo Salinas </strong><p>
+           <p class="">Profe: <strong>Gonzalo Cárcamo Salinas </strong><p>
            <div class="mb-1 text-muted"><strong>"<%=@ad.title%>"</strong></div><br>
            <strong class="d-inline-block mb-2 text-dark">
              <% @ad.tags.each do |tag| %>
                 [<%= tag.title%>]
                 <% end %></strong>
+
+                <div class="my-5">
+                <% if @ad.instruction.attached? %>
+                <i class="fas fa-file-pdf fa-2x"></i>
+                <a href="<%= rails_blob_path(@ad.instruction, disposition: 'attachment')%>">Descargar PDF</a>
+                <% end %> |
+
+                <i class="fab fa-youtube fa-2x"><%= @ad.link1 %></i>
+                <a href="">Mi Canal youtube</a>
+
+                </div>
 
 
 
@@ -34,12 +36,17 @@
          <div class="col-auto d-none d-lg-block">
            <% if @ad.image.attached? %>
            <p>
-           <%= image_tag @ad.image, style: "height:400px; width:400px;"%>
+           <%= image_tag @ad.image, style: "height:280px; width:280px;"%>
            </p>
 
            <% end %>
          </div>
        </div>
      </div>
-     <%= link_to 'Edit', edit_ad_path(@ad)%>
+
+     <div class="text-right"><strong>
+
+     <%= link_to 'Edit', edit_ad_path(@ad)%> |
      <%= link_to 'Back', ads_path %>
+
+     </strong></div>
