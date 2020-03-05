@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     registrations:'users/registrations',
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
+  get 'ads/new2'
 
   resources :tags
   resources :categories

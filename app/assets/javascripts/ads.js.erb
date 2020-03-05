@@ -1,6 +1,7 @@
-$(document).on('turbolinks:load', function() {
+$(document).ready(function(){
 
-  $('[name=q]').on('keyup', function(){
+  $('[name=q]').on('keyup', function(e){
+    e.preventDefault
     var query =$('[name=q]').val()
 
       if(query.length > 2){
@@ -11,5 +12,15 @@ $(document).on('turbolinks:load', function() {
               dataType: "script"
           })
       }
+
+      else {
+        $.ajax({
+            type: "GET",
+            url: "/ads",
+
+            dataType: "script"
+
+      }
   })
+
 })

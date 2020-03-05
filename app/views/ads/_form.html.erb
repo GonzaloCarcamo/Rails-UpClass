@@ -14,20 +14,15 @@
   <% end %>
 
   <div class="field">
-    <h2><strong><%= form.label :"Tu Nombre y Apellidos"%></strong></h2>
-
-    <p><%= form.text_field :name, class:'form-control'%></p>
-  </div>
-
-
-  <div class="field">
-    <h2><strong><%= form.label :"Qué ofreces?"%></strong></h2>
+    <h2 class="text-center"><strong><%= form.label :"Qué ofreces?"%></strong></h2>
 
     <p><%= form.text_field :title, class:'form-control'%></p>
   </div>
 
 
-  <div class=field>
+
+
+  <div class="text-center">
     <h2><strong><%= form.label :"Elige una categoría"%></strong></h2>
     <h5><%= form.select :category, options_for_select(@categories),
     prompt: 'selecciona una categoría', class:'form-control'%></h5

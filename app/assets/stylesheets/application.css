@@ -1,5 +1,12 @@
 
+#nav1{
+  background-color: #03002A;
+}
 
+
+#nav2{
+  background-color: #08006B;
+}
 
 body{
     font-family: 'Oswald', sans-serif;
@@ -17,14 +24,6 @@ body{
     background-color: black;
     color: white;
     height: 100px;
-  }
-
-  .navbar{
-    background-color: #07024A;
-  }
-
-  nav{
-    background-color: #07024A;
   }
 
 li{

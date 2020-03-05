@@ -1,21 +1,7 @@
 Category.destroy_all
 Tag.destroy_all
+User.destroy_all
 
-Category.create(title:'Desarrollo WEB')
-Category.create(title:'Música')
-Category.create(title:'Deportes')
-
-Tag.create(title:'Ruby on Rails')
-Tag.create(title:'Django')
-Tag.create(title:'JavaScript')
-
-Tag.create(title:'Guitarra Eléctrica')
-Tag.create(title:'Batería')
-Tag.create(title:'Armonía')
-
-Tag.create(title:'Crossfit')
-Tag.create(title:'Yoga')
-Tag.create(title:'Personal Training')
 
 User.create(
     email:'admin@admin.cl',
@@ -29,11 +15,3 @@ User.create(
     password:'123123',
     name:'user',
     last_name: 'user')
-
-
-
-
-
-
-
-
