@@ -1,15 +1,10 @@
 
 <p id="notice"><%= notice %></p>
-<form class="" data-remote="true">
-  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q" >
-</form>
 
+  <input data-remote="true"
+  class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="q" >
 
-
-
-
-  <h1 class="text-center">Últimos Anuncios</h1>
-
+  <br>
 
 <div id='ads'>
   <%= render @ads %>

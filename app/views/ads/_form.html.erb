@@ -13,13 +13,13 @@
     </div>
   <% end %>
 
+
+
   <div class="field">
     <h2 class="text-center"><strong><%= form.label :"Qué ofreces?"%></strong></h2>
 
     <p><%= form.text_field :title, class:'form-control'%></p>
   </div>
-
-
 
 
   <div class="text-center">
@@ -28,21 +28,17 @@
     prompt: 'selecciona una categoría', class:'form-control'%></h5
   </div>
 
-  <br>
 
-  <div class="field">
-  <h2><strong>Qué te gustaría enseñar?</strong></h2>
 
-  <% @tags.each do |tag|%>
-        <%= form.fields_for :ads_tags do |t|%>
-        <%= t.label tag.title %>
-        <%= t.check_box tag.id%>
-      <% end%>
-    <% end%>
 
-  </div>
+   <% @tags.each do |tag|%>
+         <%= form.fields_for :ads_tags do |t|%>
+         <%= t.label tag.title %>
+         <%= t.check_box tag.id%>
+       <% end%>
+     <% end%>
 
-  <br>
+
 
   <div class="field">
  <h2><strong><%= form.label :"Necesitamos tu foto!" %></strong></h2>

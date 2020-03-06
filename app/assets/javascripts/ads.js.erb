@@ -1,26 +1,26 @@
+
 $(document).ready(function(){
 
-  $('[name=q]').on('keyup', function(e){
-    e.preventDefault
-    var query =$('[name=q]').val()
 
-      if(query.length > 2){
-          $.ajax({
-              type: "GET",
-              url: "/ads",
-              data: { q: query},
-              dataType: "script"
-          })
-      }
+    // Search comment
+    $('[name=q]').on('keyup', function(e){
+      e.preventDefault()
 
-      else {
+      if($(this).val().length > 2 ){
         $.ajax({
-            type: "GET",
-            url: "/ads",
-
-            dataType: "script"
-
+          type: "get",
+          url: "/ads",
+          data: { q: $(this).val() },
+          dataType: "script"
+        });
       }
-  })
 
-})
+
+      if($(this).val().length == 0){
+        $.ajax({
+          type: "get",
+          url: "/ads",
+          dataType: "script"
+        });
+      }
+    })

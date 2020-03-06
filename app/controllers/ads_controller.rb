@@ -6,10 +6,16 @@ class AdsController < ApplicationController
   # GET /ads
   # GET /ads.json
   def index
-    @ads = Ad.all
-    @ads = Ad.where("category like ? ", "%#{params[:q]}%") if params[:q]
+
+    @ads = unless params[:q]
+
+      Ad.all
+    else
+
+      Ad.where('category ilike ? or tag ilike ?',"%#{params[:q]}%","%#{params[:q]}%")
 
   end
+end
 
   # GET /ads/1
   # GET /ads/1.json
@@ -21,6 +27,7 @@ class AdsController < ApplicationController
     @ad = Ad.new
     @categories = Category.pluck(:title)
     @tags = Tag.all
+    
   end
 
   # GET /ads/1/edit
