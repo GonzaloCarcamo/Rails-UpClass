@@ -1,36 +1,27 @@
 
-#nav1{
-  background-color: #03002A;
-}
-
-
-#nav2{
-  background-color: #08006B;
-}
-
 body{
     font-family: 'Oswald', sans-serif;
+
   }
 
-  h1{
-    font-size: 5em;
-  }
+nav{
+  height: 80px;
+  background-color: #0D0D0D;
+  color: #E9DFDF;
 
-  p{
-    font-size: 2em;
-  }
+}
 
-  footer{
-    background-color: black;
-    color: white;
-    height: 100px;
-  }
-
-li{
-  color: black;
+h2{
+  font-size: 4em;
 }
 
 
-.hero-area{
-  background-image: image('hero.jpg');
+.jumbotron-hero{
+  background-image: url('hero.jpg');
+  height: 554px;
+}
+
+footer{
+  background-color: #0D0D0D;
+  color: #E9DFDF;
 }

@@ -1,10 +1,10 @@
 <main role="main" id="ad_<%= ad.id %>">
-  <div class="jumbotron">
-    <h2><% ad.tags.each do |tag| %> <%= tag.title %> <% end %></h2>
+  <div class="jumbotron container">
+    <h3><strong><% ad.tags.each do |tag| %> [<%= tag.title %>] <% end %></strong></h3>
 
-    <p class="lead"><%= ad.category %></p>
+    <p class="lead"><strong><%= ad.category %></strong></p>
 
-    <p><%= ad.title %></p>
+    <h4>"<%=ad.title %>"</h4>
 
     <div id="options" class="text-right">
 

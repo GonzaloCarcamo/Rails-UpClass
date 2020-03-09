@@ -7,10 +7,8 @@
 
     <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -21,144 +19,19 @@
 
   <body class="body-wrapper">
 
-
-  <section>
-  	<div class="container">
-  		<div class="row">
-  			<div class="col-md-12">
-  				<nav class="navbar navbar-expand-lg navbar-light navigation">
-  					<a class="navbar-brand" href="index.html">
-  						<img src="images/logo.png" alt="">
-  					</a>
-  					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-  					 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-  						<span class="navbar-toggler-icon"></span>
-  					</button>
-  					<div class="collapse navbar-collapse" id="navbarSupportedContent">
-  						<ul class="navbar-nav ml-auto main-nav ">
-  							<li class="nav-item active">
-  								<a class="nav-link" href="index.html"><% if user_signed_in?%>
-          <%= current_user.name%>
-          <% end %></a>
-  							</li>
-                <li class="nav-item active">
-  								<a class="nav-link" href="index.html"><%= link_to 'New Ad', new_ad_path %></a>
-  							</li>
-                <li class="nav-item active">
-                  <a class="nav-link" href="index.html"><%= link_to 'Sign in with Facebook',
-          user_facebook_omniauth_authorize_path %></a>
-                </li>
-  							<li class="nav-item dropdown dropdown-slide">
-  								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">Dashboard<span><i class="fa fa-angle-down"></i></span>
-  								</a>
-
-  								<!-- Dropdown list -->
-  								<div class="dropdown-menu">
-  									<a class="dropdown-item" href="dashboard.html">Dashboard</a>
-  									<a class="dropdown-item" href="dashboard-my-ads.html">Dashboard My Ads</a>
-  									<a class="dropdown-item" href="dashboard-favourite-ads.html">Dashboard Favourite Ads</a>
-  									<a class="dropdown-item" href="dashboard-archived-ads.html">Dashboard Archived Ads</a>
-  									<a class="dropdown-item" href="dashboard-pending-ads.html">Dashboard Pending Ads</a>
-  								</div>
-  							</li>
-  							<li class="nav-item dropdown dropdown-slide">
-  								<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-  									Pages <span><i class="fa fa-angle-down"></i></span>
-  								</a>
-  								<!-- Dropdown list -->
-  								<div class="dropdown-menu">
-  									<a class="dropdown-item" href="about-us.html">About Us</a>
-  									<a class="dropdown-item" href="contact-us.html">Contact Us</a>
-  									<a class="dropdown-item" href="user-profile.html">User Profile</a>
-  									<a class="dropdown-item" href="404.html">404 Page</a>
-  									<a class="dropdown-item" href="package.html">Package</a>
-  									<a class="dropdown-item" href="single.html">Single Page</a>
-  									<a class="dropdown-item" href="store.html">Store Single</a>
-  									<a class="dropdown-item" href="single-blog.html">Single Post</a>
-  									<a class="dropdown-item" href="blog.html">Blog</a>
-
-  								</div>
-  							</li>
-  							<li class="nav-item dropdown dropdown-slide">
-  								<a class="nav-link dropdown-toggle" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-  									Listing <span><i class="fa fa-angle-down"></i></span>
-  								</a>
-  								<!-- Dropdown list -->
-  								<div class="dropdown-menu">
-  									<a class="dropdown-item" href="category.html">Ad-Gird View</a>
-  									<a class="dropdown-item" href="ad-listing-list.html">Ad-List View</a>
-  								</div>
-  							</li>
-  						</ul>
-  						<ul class="navbar-nav ml-auto mt-10">
-  							<li class="nav-item">
-  								<a class="nav-link login-button" href="login.html">Login</a>
-  							</li>
-  							<li class="nav-item">
-  								<a class="nav-link text-white add-button" href="ad-listing.html"><i class="fa fa-plus-circle"></i> Add Listing</a>
-  							</li>
-  						</ul>
-  					</div>
-  				</nav>
-  			</div>
-  		</div>
-  	</div>
-  </section>
-
-  <section class="hero-area bg-1 text-center overly">
-	<!-- Container Start -->
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<!-- Header Contetnt -->
-				<div class="content-block">
-					<h1>Buy & Sell Near You </h1>
-					<p>Join the millions who buy and sell from each other <br> everyday in local communities around the world</p>
-					<div class="short-popular-category-list text-center">
-						<h2>Popular Category</h2>
-						<ul class="list-inline">
-							<li class="list-inline-item">
-								<a href="category.html"><i class="fa fa-bed"></i> Hotel</a></li>
-							<li class="list-inline-item">
-								<a href="category.html"><i class="fa fa-grav"></i> Fitness</a>
-							</li>
-							<li class="list-inline-item">
-								<a href="category.html"><i class="fa fa-car"></i> Cars</a>
-							</li>
-							<li class="list-inline-item">
-								<a href="category.html"><i class="fa fa-cutlery"></i> Restaurants</a>
-							</li>
-							<li class="list-inline-item">
-								<a href="category.html"><i class="fa fa-coffee"></i> Cafe</a>
-							</li>
-						</ul>
-					</div>
-
-				</div>
-				<!-- Advance Search -->
-
-			</div>
-		</div>
-	</div>
-	<!-- Container End -->
-</section>
+    <%= render './shared/navbar' %>
 
 
-
-
-
-
-        <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
     <%= yield %>
 
 
+    <%= render './shared/footer' %>
 
 <!--
 
      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 -->
- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 

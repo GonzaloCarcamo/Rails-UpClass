@@ -3,34 +3,34 @@ class AdsController < ApplicationController
   before_action :authenticate_user!
   load_and_authorize_resource
 
-  # GET /ads
-  # GET /ads.json
   def index
-
     @ads = unless params[:q]
+      Ad.all.order("created_at DESC")
+      else
+        Ad.includes(:tags).where('tags.title ilike ? OR category ilike ?' ,
+          "%#{params[:q]}%", "%#{params[:q]}%").references(:tags)
+        end
+      end
 
-      Ad.all
-    else
-
-      Ad.where('category ilike ? or tag ilike ?',"%#{params[:q]}%","%#{params[:q]}%")
-
-  end
-end
-
-  # GET /ads/1
-  # GET /ads/1.json
   def show
   end
 
-  # GET /ads/new
   def new
-    @ad = Ad.new
-    @categories = Category.pluck(:title)
-    @tags = Tag.all
-    
-  end
+      @ad = Ad.new
+      @categories = Category.pluck(:title)
 
-  # GET /ads/1/edit
+      @tags_musica =         Tag.where(category_id: 1)
+      @tags_deporte =        Tag.where(category_id: 2)
+      @tags_web =            Tag.where(category_id: 3)
+      @tags_ciencias =       Tag.where(category_id: 4)
+      @tags_ingles =         Tag.where(category_id: 5)
+      @tags_otros =          Tag.where(category_id: 6)
+      @tags_diferencial =    Tag.where(category_id: 7)
+      @tags_coaching =       Tag.where(category_id: 8)
+      @tags_asesorias =      Tag.where(category_id: 9)
+
+    end
+
   def edit
     @ad = Ad.find(params[:id])
     @categories = Category.pluck(:title)
@@ -38,8 +38,6 @@ end
 
   end
 
-  # POST /ads
-  # POST /ads.json
   def create
     @ad = Ad.new(ad_params)
     @ad.user = current_user
@@ -51,7 +49,7 @@ end
 
     respond_to do |format|
       if @ad.save
-        format.html { redirect_to @ad, notice: 'Ad was successfully created.' }
+        format.html { redirect_to @ad, notice: 'Tu anuncio fue creado con éxito' }
         format.json { render :show, status: :created, location: @ad }
       else
         @categories = Category.pluck(:title)
@@ -67,7 +65,7 @@ end
   def update
     respond_to do |format|
       if @ad.update(ad_params)
-        format.html { redirect_to @ad, notice: 'Ad was successfully updated.' }
+        format.html { redirect_to @ad, notice: 'Tu edición fue realizada con éxito.' }
         format.json { render :show, status: :ok, location: @ad }
       else
         format.html { render :edit }
@@ -81,7 +79,7 @@ end
   def destroy
     @ad.destroy
     respond_to do |format|
-      format.html { redirect_to ads_url, notice: 'Ad was successfully destroyed.' }
+      format.html { redirect_to ads_url, notice: 'Tu anuncio fue eliminado con éxito' }
       format.json { head :no_content }
     end
   end

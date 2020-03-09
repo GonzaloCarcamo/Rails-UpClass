@@ -1,6 +1,42 @@
 
 $(document).ready(function(){
 
+ $("#tags_musica").hide()
+ $("#tags_deporte").hide()
+ $("#tags_web").hide()
+ $("#tags_ciencias").hide()
+ $("#tags_ingles").hide()
+ $("#tags_otros").hide()
+ $("#tags_diferencial").hide()
+ $("#tags_coaching").hide()
+ $("#tags_asesorias").hide()
+
+ $("#ad_category").change(function(){
+         var select = $(this).children("option:selected").text();
+
+         if(select == "Musica"){
+           $("#tags_musica").show()
+         }else if(select == "Deporte"){
+           $("#tags_deporte").show()
+         }else if(select == "Desarrollo WEB"){
+           $("#tags_web").show()
+         }else if(select == "Ciencias"){
+           $("#tags_ciencias").show()
+         }else if(select == "Ingles"){
+           $("#tags_ingles").show()
+         }else if(select == "Otros Idiomas"){
+           $("#tags_otros").show()
+         }else if(select == "Aprendizaje Diferencial"){
+           $("#tags_diferencial").show()
+         }else if(select == "Coaching"){
+           $("#tags_coaching").show()
+         }else {
+           $("#tags_asesorias").show()
+
+         }
+     });
+
+
 
     // Search comment
     $('[name=q]').on('keyup', function(e){
@@ -24,3 +60,5 @@ $(document).ready(function(){
         });
       }
     })
+
+  })

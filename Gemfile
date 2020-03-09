@@ -15,6 +15,7 @@ gem 'devise'
 gem 'cancancan'
 gem 'aws-sdk', '~> 3', group: :production
 gem 'omniauth-facebook'
+gem 'ransack'
 
 
 # Use Uglifier as compressor for JavaScript assets
@@ -58,7 +59,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'jquery-rails'
 
-  
+
 end
 
 group :test do
@@ -71,4 +72,3 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
