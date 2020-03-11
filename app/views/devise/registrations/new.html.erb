@@ -28,6 +28,16 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
+  <div class="field">
+    <%= f.label :"Cuéntanos de tí" %><br />
+    <%= f.text_field :resume %>
+  </div>
+
+  <div class="field">
+    <%= f.label :"Cuánto cuesta tu clase?" %><br />
+    <%= f.text_field :fee %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
