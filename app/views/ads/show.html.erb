@@ -16,14 +16,12 @@
                <% @users.each do |user| %>
                <% if user.id == @ad.user_id %>
                <%= user.name %>
+               <%= user.resume %>
+               <%= user.fee %>
+
                   <% end %>
                     <% end %>
             </strong><p>
-           <div class="mb-1 text-muted"><strong>"<%=@ad.title%>"</strong></div><br>
-           <strong class="d-inline-block mb-2 text-dark">
-             <% @ad.tags.each do |tag| %>
-                [<%= tag.title%>]
-                <% end %></strong>
 
                 <div class="my-5">
                 <% if @ad.instruction.attached? %>
