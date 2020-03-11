@@ -16,7 +16,7 @@ gem 'cancancan'
 gem 'aws-sdk', '~> 3', group: :production
 gem 'omniauth-facebook'
 gem 'ransack'
-
+gem 'activeadmin'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

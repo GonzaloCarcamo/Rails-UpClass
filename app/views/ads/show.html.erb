@@ -10,7 +10,15 @@
 
 
 
-           <p class="">Profe: <strong> <%= %> </strong><p>
+
+           <p class="">Profe:
+             <strong>
+               <% @users.each do |user| %>
+               <% if user.id == @ad.user_id %>
+               <%= user.name %>
+                  <% end %>
+                    <% end %>
+            </strong><p>
            <div class="mb-1 text-muted"><strong>"<%=@ad.title%>"</strong></div><br>
            <strong class="d-inline-block mb-2 text-dark">
              <% @ad.tags.each do |tag| %>
@@ -50,5 +58,3 @@
      <%= link_to 'Back', ads_path %>
 
      </strong></div>
-
-     
