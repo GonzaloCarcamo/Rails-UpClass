@@ -1,7 +1,7 @@
 Category.destroy_all
 Tag.destroy_all
 User.destroy_all
-AdminUser.destroy_all
+
 
 Category.create(title:'Musica')
 Tag.create(title:'Guitarra Electrica', category_id:'1')
@@ -71,4 +71,3 @@ User.create(
     email:'user@user.cl',
     password:'123123',
     name:'user')
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
