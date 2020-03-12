@@ -102,12 +102,6 @@ ActiveRecord::Schema.define(version: 2020_03_11_192355) do
     t.string "resume"
     t.string "fee"
     t.boolean "admin", default: false
-<<<<<<< HEAD
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-=======
->>>>>>> 4f973865fb0fbb57d1034d1fe4c262412878e6ae
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "reset_password_token"
