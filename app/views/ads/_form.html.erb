@@ -1,5 +1,8 @@
 <div class="card">
 
+
+<div class="col-lg-4 col-md-6 col-sm-6">
+
 <%= form_with(model: ad, 'data-remote': true) do |form| %>
   <% if ad.errors.any? %>
     <div id="error_explanation">
@@ -15,15 +18,15 @@
 
 
 
-  <div class="field">
-    <h3 class="text-center"><strong><%= form.label :"Qué ofreces?"%></strong></h3>
+  <div class="form-group">
+    <h4 class="my-3"><strong><%= form.label :"Qué ofreces?"%></strong></h4>
 
-    <p><%= form.text_field :title, class:'form-control'%></p>
+    <h4><%= form.text_field :title, class:'form-control'%></h4>
   </div>
 
-  <div class="text-center">
-    <h3><strong><label for="ad_Elige una categoría">Elige una categoría</label></strong></h3>
-    <h5><select data-remote="true" name="ad[category]" id="ad_category">
+  <div class="form-group">
+    <h4><strong><label for="ad_Elige una categoría">Elige una categoría</label></strong></h4>
+    <h3 class="my-3 form-control"><select data-remote="true" name="ad[category]" id="ad_category">
       <option value="">selecciona una categoría</option>
       <option value="Musica">Musica</option>
       <option value="Deporte">Deporte</option>
@@ -33,7 +36,7 @@
       <option value="Otros Idiomas">Otros Idiomas</option>
 <option value="Aprendizaje Diferencial">Aprendizaje Diferencial</option>
 <option value="Coaching">Coaching</option>
-<option value="Asesorías">Asesorías</option></select></h5
+<option value="Asesorías">Asesorías</option></select></h3
   </div>
 
   <div id="tags_musica" class="container text-justif">
@@ -141,25 +144,26 @@
   </div>
 
 
-
-<div class="field">
- <h3><strong><%= form.label :"Necesitamos tu foto!" %></strong></h3>
- <%= form.file_field :image %>
+<div class="form-group">
+ <h4><strong><%= form.label :"Necesitamos tu foto!" %></strong></h4>
+ <p><%= form.file_field :image, class:'form-control' %></p>
 </div>
 
-<br>
-
-  <div class="field">
-    <h3><strong><%= form.label :Certificaciones %></strong></h3>
-    <%= form.file_field :instruction %>
+  <div class="form-group">
+    <h4><strong><%= form.label :Certificaciones %></strong></h4>
+    <%= form.file_field :instruction, class:'form-control' %>
   </div>
 
   <br>
 
-  <div class="actions text-right">
-    <button><%= form.submit %></button>
-  </div>
+  <div class="actions form-group">
+    <p><%= form.submit 'Guardar', class: 'btn btn-primary form-control' %></p>
+    <p><%= link_to 'Inicio', ads_path , class: 'btn btn-primary form-control' %></p>
 
-  <br>
+  </div>
 
 <% end %>
+
+</div>
+
+</div>
