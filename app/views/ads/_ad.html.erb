@@ -1,5 +1,5 @@
-<main role="main" id="ad_<%= ad.id %>">
-  <div class="jumbotron container">
+<main role="main" style="opacity: 0.8" id="ad_<%= ad.id %>">
+  <div class="jumbotron">
     <h3><strong><% ad.tags.each do |tag| %> [<%= tag.title %>] <% end %></strong></h3>
 
     <p class="lead"><strong><%= ad.category %></strong></p>

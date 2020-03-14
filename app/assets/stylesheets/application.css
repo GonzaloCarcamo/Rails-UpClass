@@ -1,26 +1,46 @@
 
 body{
-    font-family: 'Oswald', sans-serif;
-    background-image: url('main.jpg');
+  font-family: 'Bebas Neue', cursive;
+
+
 
 
   }
 
+  h2{
+    font-size: 2em;
+  }
+
+  h3{
+    font-size: 1.5em;
+  }
 nav{
   text-align: center;
-  height: 60px;
-  background-color: transparent !important
-
+  height: 100px;
+  background-color: black;
 
 }
 
-h2{
-  font-size: 5em;
-  color: #DF0000;
+.hero{
+  background-image: url('font.jpg');
+  -webkit-filter: grayscale(60%);
+  background-size: cover;
+
 }
+
 
 footer{
   background-color: #0D0D0D;
   color: #E9DFDF;
-  height: 80px;
+  height: 60px;
+}
+
+.main-title{
+  color: #EA0000;
+  font-size: 7em;
+}
+
+nav a{
+  font-size: 1.5em;
+  color: #5E049C;
 }

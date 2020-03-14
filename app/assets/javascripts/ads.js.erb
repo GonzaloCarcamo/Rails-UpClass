@@ -61,4 +61,15 @@ $(document).on('turbolinks:load', function() {
       }
     })
 
+    $('#send-comment').click(function(){
+      var comment = $('#comment').val()
+      var user = $('#user').val()
+      $.ajax({
+        type: 'POST',
+        url: '/comments',
+        data: { user_id: user, post: comment},
+        dataType: 'script'
+      })
+    })
+
   })

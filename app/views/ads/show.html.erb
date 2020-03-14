@@ -1,58 +1,73 @@
+<h1 class="text-center">Perfil</h1>
 
+<main>
 
-<p id="notice"><%= notice %></p>
+  <div class="text-center">
+    <% if @ad.image.attached? %>
+      <p>
+        <%= image_tag @ad.image, class: 'rounded-circle' %>
+      </p>
 
-<h1 class="text-center"><strong>Perfil</strong></h1>
+    <% end %>
 
-  <div class="container">
-       <div class="row no-gutters border rounded overflow-hidden mb-4 shadow-sm h-md-250 position-relative">
-         <div class="col p-4 position-static">
+  </div>
 
+  <div class="text-center">
+    <% if @ad.instruction.attached? %>
+      <i class="fas fa-file-pdf fa-2x"></i>
+      <a href="<%= rails_blob_path(@ad.instruction, disposition: 'attachment')%>">Descargar PDF</a>
+    <% end %>
 
+  </div>
 
-
-           <p class="">Profe:
-             <strong>
-               <% @users.each do |user| %>
-               <% if user.id == @ad.user_id %>
-               <%= user.name %>
-               <%= user.resume %>
-               <%= user.fee %>
-
-                  <% end %>
-                    <% end %>
-            </strong><p>
-
-                <div class="my-5">
-                <% if @ad.instruction.attached? %>
-                <i class="fas fa-file-pdf fa-2x"></i>
-                <a href="<%= rails_blob_path(@ad.instruction, disposition: 'attachment')%>">Descargar PDF</a>
-                <% end %> |
-
-                <i class="fab fa-youtube fa-2x"><%= @ad.link1 %></i>
-                <a href="">Mi Canal youtube</a>
-
-                </div>
+</main>
 
 
 
 
 
-         </div>
-         <div class="col-auto d-none d-lg-block">
-           <% if @ad.image.attached? %>
-           <p>
-           <%= image_tag @ad.image, style: "height:280px; width:280px;"%>
-           </p>
+  <% @users.each do |user| %>
+    <% if user.id == @ad.user_id %>
+      <p>Profesor:
+        <%= user.name %></p>
+      <p>Resumen:
+        <%= user.resume %></p>
+      <p>Valor hora:
+        <%= user.fee %>
+        Pesos</p>
 
-           <% end %>
-         </div>
-       </div>
-     </div>
+      <div class="container">
+        <h2 class="text-center">Comentarios</h2>
 
-     <div class="text-right"><strong>
+        <div class="text-center">
+              <input class="w-50" id="comment" type="text" name="" value="">
+              <input type="hidden" name="" value="<%= user.id %>" id="user" aria-hidden="true">
+              <button class="btn btn-primary" type="submit" id="send-comment">Agregar comentario</button>
 
-     <%= link_to 'Edit', edit_ad_path(@ad)%> |
-     <%= link_to 'Back', ads_path %>
+        </div>
 
-     </strong></div>
+
+
+        <% @comments.each do |comment|%>
+
+
+          <% if comment.user_id == user.id && @ad.user_id %>
+
+            <div class="jumbotron jumbotron-fluid" id="comment-list">
+
+              <div  class="container">
+
+                <h4><%= comment.post %></h4>
+                <h6 class="text-right"><%= comment.created_at %></h6>
+                <h6></h6>
+              </div>
+
+            </div>
+          <% end %>
+
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+
+  </div>

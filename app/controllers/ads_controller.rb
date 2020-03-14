@@ -15,6 +15,8 @@ class AdsController < ApplicationController
   def show
     @ad = Ad.find(params[:id])
     @users = User.all
+    @comments = Comment.all
+
   end
 
   def new
