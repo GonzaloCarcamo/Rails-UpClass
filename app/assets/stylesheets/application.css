@@ -1,7 +1,7 @@
 
 body{
   font-family: 'Bebas Neue', cursive;
-  
+
   }
 
   h2{
@@ -26,6 +26,9 @@ body{
 
 }
 
+nav{
+  height: 140px;
+}
 
 
 
