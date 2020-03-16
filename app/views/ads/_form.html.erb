@@ -1,8 +1,8 @@
 <!-- Formulario inscripción usuario -->
 
 
-<div class="card">
-<div class="col-lg-4 col-md-8">
+
+<div class="col-lg-6">
 
 
 
@@ -40,7 +40,7 @@
       <option value="Asesorías">Asesorías</option></select></h3
   </div>
 
-  <div id="tags">
+  <div id="tags" class="form-group">
 
     <% @tags.each do |tag|%>
           <%= form.fields_for :ads_tags do |t|%>
@@ -62,7 +62,7 @@
   </div>
 
   <div class="form-group">
-    <h4><strong><%= form.label :Certificaciones %></strong></h4>
+    <h4><strong><%= form.label :"Certificaciones (opcional)" %></strong></h4>
     <%= form.file_field :instruction, class:'form-control' %>
   </div>
 
@@ -74,5 +74,4 @@
 
   <% end %>
 
-  </div>
   </div>
