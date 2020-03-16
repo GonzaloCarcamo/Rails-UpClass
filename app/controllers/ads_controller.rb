@@ -15,7 +15,7 @@ class AdsController < ApplicationController
   def show
     @ad = Ad.find(params[:id])
     @users = User.all
-    @comments = Comment.all
+    @comments = Comment.all.order('created_at DESC')
 
   end
 
@@ -23,33 +23,14 @@ class AdsController < ApplicationController
       @ad = Ad.new
       @categories = Category.pluck(:title)
 
-      @tags_musica =         Tag.where(category_id: 1)
-      @tags_deporte =        Tag.where(category_id: 2)
-      @tags_web =            Tag.where(category_id: 3)
-      @tags_ciencias =       Tag.where(category_id: 4)
-      @tags_ingles =         Tag.where(category_id: 5)
-      @tags_otros =          Tag.where(category_id: 6)
-      @tags_diferencial =    Tag.where(category_id: 7)
-      @tags_coaching =       Tag.where(category_id: 8)
-      @tags_asesorias =      Tag.where(category_id: 9)
+      @tags = Tag.all
 
     end
 
   def edit
     @ad = Ad.find(params[:id])
     @categories = Category.pluck(:title)
-
-
-    @tags_musica =         Tag.where(category_id: 1)
-    @tags_deporte =        Tag.where(category_id: 2)
-    @tags_web =            Tag.where(category_id: 3)
-    @tags_ciencias =       Tag.where(category_id: 4)
-    @tags_ingles =         Tag.where(category_id: 5)
-    @tags_otros =          Tag.where(category_id: 6)
-    @tags_diferencial =    Tag.where(category_id: 7)
-    @tags_coaching =       Tag.where(category_id: 8)
-    @tags_asesorias =      Tag.where(category_id: 9)
-
+    @tags = Tag.all
   end
 
   def create

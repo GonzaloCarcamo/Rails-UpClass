@@ -1,14 +1,16 @@
+<!-- Formulario inscripción usuario -->
 
 
 <div class="card">
-<div class="col-lg-4 col-md-6 col-sm-6">
+<div class="col-lg-4 col-md-8">
+
+
 
 
 <%= form_with(model: ad, 'data-remote': true) do |form| %>
   <% if ad.errors.any? %>
     <div id="error_explanation">
       <h3><%= pluralize(ad.errors.count, "error") %> prohibited this ad from being saved:</h3>
-
       <ul>
       <% ad.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -17,10 +19,8 @@
     </div>
   <% end %>
 
-
-
   <div class="form-group">
-    <h4 class="my-3"><strong><%= form.label :"Qué ofreces?"%></strong></h4>
+    <h4 class=""><strong><%= form.label :"Qué ofreces?"%></strong></h4>
 
     <h4><%= form.text_field :title, class:'form-control'%></h4>
   </div>
@@ -35,127 +35,36 @@
       <option value="Ciencias">Ciencias</option>
       <option value="Ingles">Ingles</option>
       <option value="Otros Idiomas">Otros Idiomas</option>
-<option value="Aprendizaje Diferencial">Aprendizaje Diferencial</option>
-<option value="Coaching">Coaching</option>
-<option value="Asesorías">Asesorías</option></select></h3
+      <option value="Aprendizaje Diferencial">Aprendizaje Diferencial</option>
+      <option value="Coaching">Coaching</option>
+      <option value="Asesorías">Asesorías</option></select></h3
   </div>
 
-  <div id="tags_musica" class="container text-justif">
+  <div id="tags">
 
-     <% @tags_musica.each do |tag|%>
-           <%= form.fields_for :ads_tags do |t|%>
-           <%= t.label tag.title %>
-           <%= t.check_box tag.id%>
-         <% end%>
-       <% end%>
-
-  </div>
-
-  <div id="tags_deporte" class="container text-justif">
-
-     <% @tags_deporte.each do |tag|%>
-           <%= form.fields_for :ads_tags do |t|%>
-           <%= t.label tag.title %>
-           <%= t.check_box tag.id%>
-         <% end%>
-       <% end%>
-
-  </div>
-
-  <div id="tags_web" class="container text-justif">
-
-     <% @tags_web.each do |tag|%>
-           <%= form.fields_for :ads_tags do |t|%>
-           <%= t.label tag.title %>
-           <%= t.check_box tag.id%>
-         <% end%>
-       <% end%>
-
+    <% @tags.each do |tag|%>
+          <%= form.fields_for :ads_tags do |t|%>
+          <div class="<%=tag.category_id%>"
+          <%= t.label tag.title %>
+          <%= t.check_box tag.id, data: {category: tag.category_id}%>
+        <% end%>
+        </div>
+      <% end%>
   </div>
 
 
-  <div id="tags_ciencias" class="container text-justif">
 
-     <% @tags_ciencias.each do |tag|%>
-           <%= form.fields_for :ads_tags do |t|%>
-           <%= t.label tag.title %>
-           <%= t.check_box tag.id%>
-         <% end%>
-       <% end%>
 
+
+  <div class="form-group">
+    <h4><strong><%= form.label :"Necesitamos tu foto!" %></strong></h4>
+    <p><%= form.file_field :image, class:'form-control' %></p>
   </div>
-
-
-  <div id="tags_ingles" class="container text-justif">
-
-     <% @tags_ingles.each do |tag|%>
-           <%= form.fields_for :ads_tags do |t|%>
-           <%= t.label tag.title %>
-           <%= t.check_box tag.id%>
-         <% end%>
-       <% end%>
-
-  </div>
-
-
-  <div id="tags_otros" class="container text-justif">
-
-     <% @tags_otros.each do |tag|%>
-           <%= form.fields_for :ads_tags do |t|%>
-           <%= t.label tag.title %>
-           <%= t.check_box tag.id%>
-         <% end%>
-       <% end%>
-
-  </div>
-
-
-  <div id="tags_diferencial" class="container text-justif">
-
-     <% @tags_diferencial.each do |tag|%>
-           <%= form.fields_for :ads_tags do |t|%>
-           <%= t.label tag.title %>
-           <%= t.check_box tag.id%>
-         <% end%>
-       <% end%>
-
-  </div>
-
-
-  <div id="tags_coaching" class="container text-justif">
-
-     <% @tags_coaching.each do |tag|%>
-           <%= form.fields_for :ads_tags do |t|%>
-           <%= t.label tag.title %>
-           <%= t.check_box tag.id%>
-         <% end%>
-       <% end%>
-
-  </div>
-
-  <div id="tags_asesorias" class="container text-justif">
-
-     <% @tags_asesorias.each do |tag|%>
-           <%= form.fields_for :ads_tags do |t|%>
-           <%= t.label tag.title %>
-           <%= t.check_box tag.id%>
-         <% end%>
-       <% end%>
-
-  </div>
-
-
-<div class="form-group">
- <h4><strong><%= form.label :"Necesitamos tu foto!" %></strong></h4>
- <p><%= form.file_field :image, class:'form-control' %></p>
-</div>
 
   <div class="form-group">
     <h4><strong><%= form.label :Certificaciones %></strong></h4>
     <%= form.file_field :instruction, class:'form-control' %>
   </div>
-
-  <br>
 
   <div class="actions form-group">
     <p><%= form.submit 'Guardar', class: 'btn btn-primary form-control' %></p>
@@ -163,8 +72,7 @@
 
   </div>
 
-<% end %>
+  <% end %>
 
-</div>
-
-</div>
+  </div>
+  </div>

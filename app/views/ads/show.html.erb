@@ -1,73 +1,62 @@
-<h1 class="text-center">Perfil</h1>
+<!--USER PROFILE -->
 
-<main>
+<% @users.each do |user| %>
+  <% if user.id == @ad.user_id %>
 
-  <div class="text-center">
-    <% if @ad.image.attached? %>
-      <p>
-        <%= image_tag @ad.image, class: 'rounded-circle' %>
-      </p>
+    <div class="container">
 
-    <% end %>
+      <div class="row my-3">
+        <div class="col-lg-4">
+          <h2 class="text-center"><strong>Perfil</strong></h2>
+          <% if @ad.image.attached? %>
+            <p><%= image_tag @ad.image, class:'rounded-circle'%></p>
 
-  </div>
+          <% end %>
+        </div>
 
-  <div class="text-center">
-    <% if @ad.instruction.attached? %>
-      <i class="fas fa-file-pdf fa-2x"></i>
-      <a href="<%= rails_blob_path(@ad.instruction, disposition: 'attachment')%>">Descargar PDF</a>
-    <% end %>
+        <div class="col-lg-6 my-5">
+          <h3 class=""><strong><%= user.name %></strong></h3>
+          <h4>"<%= user.resume %>."</h4>
+          <h5>valor/h:<strong><%= user.fee %></strong> Pesos</h5>
 
-  </div>
+          <div class="my-4">
+            <% if @ad.instruction.attached? %>.
+              <i class="fas fa-file-pdf fa-2x"></i>
+              <a href="<%= rails_blob_path(@ad.instruction, disposition: 'attachment')%>">Descargar PDF</a>
+            <% end %>
 
-</main>
-
-
-
-
-
-  <% @users.each do |user| %>
-    <% if user.id == @ad.user_id %>
-      <p>Profesor:
-        <%= user.name %></p>
-      <p>Resumen:
-        <%= user.resume %></p>
-      <p>Valor hora:
-        <%= user.fee %>
-        Pesos</p>
-
-      <div class="container">
-        <h2 class="text-center">Comentarios</h2>
-
-        <div class="text-center">
-              <input class="w-50" id="comment" type="text" name="" value="">
-              <input type="hidden" name="" value="<%= user.id %>" id="user" aria-hidden="true">
-              <button class="btn btn-primary" type="submit" id="send-comment">Agregar comentario</button>
+          </div>
 
         </div>
 
+      </div>
 
-
-        <% @comments.each do |comment|%>
-
-
-          <% if comment.user_id == user.id && @ad.user_id %>
-
-            <div class="jumbotron jumbotron-fluid" id="comment-list">
-
-              <div  class="container">
-
-                <h4><%= comment.post %></h4>
-                <h6 class="text-right"><%= comment.created_at %></h6>
-                <h6></h6>
-              </div>
-
-            </div>
-          <% end %>
-
-        <% end %>
-      <% end %>
     </div>
-  <% end %>
 
-  </div>
+  <%end%>
+<%end%>
+
+
+<!--PROFILE COMMENTS -->
+
+<h2 class="text-center"><strong>Comentarios</strong></h2>
+
+<div class="container">
+  <input class="w-100 my-2" id="comment" type="text" name="" value="">
+  <button class="btn btn-primary w-100" type="submit" id="send-comment">Agregar comentario</button>
+</div>
+
+<% @users.each do |user| %>
+  <p><input type="hidden"  name="" value="<%= user.id %>" id="user" aria-hidden="true"></p>
+<%end%>
+
+<% @users.each do |user| %>
+  <% @comments.each do |comment|%>
+    <% if comment.user_id == user.id && @ad.user_id %>
+      <div class="jumbotron jumbotron-fluid container" id="comment-list">
+        <h4><%= comment.post %></h4>
+        <h6><%= comment.created_at %></h6>
+      </div>
+    <%end%>
+  <%end%>
+<%end%>
