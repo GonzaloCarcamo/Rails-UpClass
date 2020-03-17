@@ -1,29 +1,13 @@
-<!-- Render ads and Search-->
 
-<div class="jumbotron-hero">
+  <div id="search-main" class="jumbotron jumbotron-fluid">
 
-  <br><br><br><br><br><br>
+<h1 class="text-center text-light my-5"><strong>Encuentra a tu Coach.</strong></h1>
 
-  <h2 class="text-center"><strong>Busca tu clase!</strong></h2>
+</div>
 
-  <div class="jumbotron jumbotron-fluid container" style="opacity: 0.6">
 
-    <div class="jumbtron jumbotron-fluid">
-      <form class="container" >
-        <input data-remote="true"
-        class="form-control mr-sm-3" type="text" placeholder="¿Qué deseas aprender? Ej:
-        álgebra, batería, Ruby on Rails, Yoga, etc." aria-label="Search" name="q">
-        </input>
-      </form>
 
-    </div>
+  <div id='ads'>
 
+    <%= render @ads %>
   </div>
-
-</div>
-
-<h2 class="text-center my-3"><strong>Anuncios</strong></h2>
-
-<div id='ads'>
-  <%= render @ads %>
-</div>

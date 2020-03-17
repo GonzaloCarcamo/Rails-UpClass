@@ -1,8 +1,23 @@
 
 body{
   font-family: 'Bebas Neue', cursive;
+background-color: black;
+
+
 
   }
+
+#search-main{
+
+  background-size: cover;
+  background-image: url('hero.jpg');
+  height: 625px;
+
+}
+
+h1{
+  font-size: 5em;
+}
 
   h2{
     font-size: 4em;
@@ -17,19 +32,16 @@ body{
     font-size: 1.5em;
   }
 
+#navbar1{
+  height: 50px;
 
-.jumbotron-hero{
-  background-image: url('font.jpg');
-  -webkit-filter: grayscale(60%);
-  background-size: cover;
-  height: 600px;
-
+    color: white;
 }
 
-nav{
-  height: 140px;
-}
+#navbar2{
 
+  height: 60px;
+}
 
 
 footer{
@@ -39,6 +51,10 @@ footer{
 }
 
 img{
-  height: 300px;
-  width: 300px;
+  height: 220px;
+  width: 220px;
+}
+
+.hero{
+  background-image: url('foto.jpg');
 }

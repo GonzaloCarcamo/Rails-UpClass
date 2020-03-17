@@ -17,3 +17,37 @@
 //= require jquery/dist/jquery
 //= require ads.js.erb
 //= require_tree
+
+$(document).on('turbolinks:load', function() {
+
+$('#tags').children().hide()
+
+$("#ad_category").change(function(){
+var select = $('#ad_category')[0].options.selectedIndex
+var tag = $(`.${select}`).children()[1].dataset.category
+
+
+if (select == tag) {
+  $('#tags').children().hide()
+  $(`.${select}`).show()
+}
+})
+
+$('#send-comment').click(function(){
+  var comment = $('#comment').val()
+  var user = $('#user').val()
+  var token = $( 'meta[name="csrf-token"]' ).attr( 'content' );
+    $.ajaxSetup( {
+      beforeSend: function ( xhr ) {
+        xhr.setRequestHeader( 'X-CSRF-Token', token );
+      }
+    });
+  $.ajax({
+    type: 'POST',
+    url: '/comments',
+    data: { user_id: user, post: comment },
+    dataType: 'script'
+  })
+})
+
+})

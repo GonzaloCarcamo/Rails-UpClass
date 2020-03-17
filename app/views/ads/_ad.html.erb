@@ -1,15 +1,11 @@
 <!--Ads-->
 
-<main role="main" style="opacity: 0.8" id="ad_<%= ad.id %>">
-  <div class="jumbotron">
+<main role="main" id="ad_<%= ad.id %>">
+  <div id="ad-list" class="jumbotron" style="padding: 20px";>
     <h3>
       <strong>
       <% ad.tags.each do |tag| %>
-        <% if ad.tags.any?%>
           [<%= tag.title %>]
-        <% else %>
-          <p>Áún no ha ingresado sus tags</p>
-        <% end %>
       <% end %>
     </strong>
   </h3>

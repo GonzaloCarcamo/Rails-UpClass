@@ -7,7 +7,7 @@
 
       <div class="row my-3">
         <div class="col-lg-4">
-          <h2 class="text-center"><strong>Perfil</strong></h2>
+
           <% if @ad.image.attached? %>
             <p><%= image_tag @ad.image, class:'rounded-circle'%></p>
           <%else%>
@@ -40,9 +40,10 @@
 
 <!--PROFILE COMMENTS -->
 
-<h2 class="text-center"><strong>Comentarios</strong></h2>
+
 
 <div class="container">
+  <h2 class=""><strong>Comentarios</strong></h2>
   <input class="w-100 my-2" id="comment" type="text" name="" value="" data-remote='true'>
   <button data-remote='true' class="btn btn-primary w-100" type="submit" id="send-comment">Agregar comentario</button>
 </div>
