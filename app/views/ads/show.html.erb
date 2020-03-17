@@ -10,7 +10,8 @@
           <h2 class="text-center"><strong>Perfil</strong></h2>
           <% if @ad.image.attached? %>
             <p><%= image_tag @ad.image, class:'rounded-circle'%></p>
-
+          <%else%>
+            <p><%= image_tag 'profile.png', class:'rounded-circle'%></p>
           <% end %>
         </div>
 
@@ -42,12 +43,12 @@
 <h2 class="text-center"><strong>Comentarios</strong></h2>
 
 <div class="container">
-  <input class="w-100 my-2" id="comment" type="text" name="" value="">
-  <button class="btn btn-primary w-100" type="submit" id="send-comment">Agregar comentario</button>
+  <input class="w-100 my-2" id="comment" type="text" name="" value="" data-remote='true'>
+  <button data-remote='true' class="btn btn-primary w-100" type="submit" id="send-comment">Agregar comentario</button>
 </div>
 
 <% @users.each do |user| %>
-  <p><input type=""  name="" value="<%= user.id %>" id="user" aria-hidden="true"></p>
+  <p><input type="hidden"  name="" value="<%= user.id %>" id="user" aria-hidden="true"></p>
 <%end%>
 
 <% @users.each do |user| %>

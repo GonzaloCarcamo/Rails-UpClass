@@ -5,6 +5,7 @@ class CommentsController < InheritedResources::Base
     respond_to do |format|
       if @comment.save
         format.js
+
       end
     end
   end

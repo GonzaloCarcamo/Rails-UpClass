@@ -1,1 +1,2 @@
+
 $("#comment-list").append("<%= j render @comment %>")
