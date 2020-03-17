@@ -2,7 +2,17 @@
 
 <main role="main" style="opacity: 0.8" id="ad_<%= ad.id %>">
   <div class="jumbotron">
-    <h3><strong><% ad.tags.each do |tag| %> [<%= tag.title %>] <% end %></strong></h3>
+    <h3>
+      <strong>
+      <% ad.tags.each do |tag| %>
+        <% if ad.tags.any?%>
+          [<%= tag.title %>]
+        <% else %>
+          <p>Áún no ha ingresado sus tags</p>
+        <% end %>
+      <% end %>
+    </strong>
+  </h3>
 
     <p><strong><%= ad.category %></strong></p>
 

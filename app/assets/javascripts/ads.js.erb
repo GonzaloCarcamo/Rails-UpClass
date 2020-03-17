@@ -41,6 +41,12 @@ $(document).on('turbolinks:load', function() {
     $('#send-comment').click(function(){
       var comment = $('#comment').val()
       var user = $('#user').val()
+      var token = $( 'meta[name="csrf-token"]' ).attr( 'content' );
+        $.ajaxSetup( {
+          beforeSend: function ( xhr ) {
+            xhr.setRequestHeader( 'X-CSRF-Token', token );
+          }
+        });
       $.ajax({
         type: 'POST',
         url: '/comments',
