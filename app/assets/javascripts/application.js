@@ -33,7 +33,9 @@ if (select == tag) {
 }
 })
 
-$('#send-comment').click(function(){
+$('#send-comment').click(function(e){
+  e.preventDefault()
+
   var comment = $('#comment').val()
   var user = $('#user').val()
   var token = $( 'meta[name="csrf-token"]' ).attr( 'content' );
