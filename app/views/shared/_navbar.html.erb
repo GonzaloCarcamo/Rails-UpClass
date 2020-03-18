@@ -18,8 +18,12 @@
        <a class=""><h4><%= link_to 'Nuevo Anuncio', new_ad_path %></h4></a>
       </li>
       <li class="nav-item">
-       <a class=""><h4><%= link_to 'Completa tu perfil', edit_user_registration_path %></h4></a>
+       <a class=""><h4><%= link_to 'Editar perfil', edit_user_registration_path %></h4></a>
       </li>
+
+      <li class="nav-item">
+   <a class=""><h4><%= link_to 'Logout', destroy_user_session_path, method: :delete %></h4></a>
+  </li>
 
 
 

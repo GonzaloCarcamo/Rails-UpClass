@@ -108,7 +108,8 @@ ActiveRecord::Schema.define(version: 2020_03_12_222320) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "resume"
-    t.string "fee"
+    t.integer "fee"
+    t.string "contact"
     t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

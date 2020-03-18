@@ -68,15 +68,6 @@ User.create(
     name:'admin',
     admin:'true')
 
-User.create(
-    email:'usuario_1@prueba.cl',
-    password:'123123',
-    name:'usuario_1@prueba.cl')
 
-
-User.create(
-    email:'usuario_2@prueba.cl',
-    password:'123123',
-    name:'usuario_2')
 
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

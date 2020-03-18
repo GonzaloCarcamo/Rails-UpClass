@@ -19,8 +19,14 @@
 
   <div class="form-group">
     <%= f.label :"Cuánto cuesta tu clase?" %><br />
-    <%= f.text_field :fee, class:'form-control' %>
+    <%= f.number_field :fee, class:'form-control' %>
   </div>
+
+  <div class="form-group">
+    <%= f.label :"¿Cómo te contactamos?" %><br />
+    <%= f.text_field :contact, class:'form-control' %>
+  </div>
+
 
   <div class="field">
     <%= f.label :"Actual contraseña" %> <br>
