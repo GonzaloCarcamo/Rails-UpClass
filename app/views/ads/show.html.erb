@@ -59,10 +59,15 @@
 
 <% @users.each do |user| %>
   <% @comments.each do |comment|%>
+  <p><input type="hidden"  name="" value="<%= comment.ad_id %>" id="ad-value" aria-hidden="true"></p>
+
     <% if comment.user_id == user.id && @ad.user_id %>
       <div class="jumbotron jumbotron-fluid container" id="comment-list">
         <h4><%= comment.post %></h4>
         <h6><%= comment.created_at %></h6>
+        <h4><%= comment.user.name %></h4>
+
+
 
       </div>
     <%end%>

@@ -15,7 +15,7 @@ class AdsController < ApplicationController
   def show
     @ad = Ad.find(params[:id])
     @users = User.all
-    @comments = Comment.all.order('created_at DESC')
+    @comments = Comment.where(ad: @ad).order('created_at DESC') 
 
   end
 

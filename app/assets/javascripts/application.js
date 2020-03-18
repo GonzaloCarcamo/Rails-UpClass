@@ -38,6 +38,7 @@ $('#send-comment').click(function(e){
 
   var comment = $('#comment').val()
   var user = $('#user').val()
+  var ad = $('#ad-value').val()
   var token = $( 'meta[name="csrf-token"]' ).attr( 'content' );
     $.ajaxSetup( {
       beforeSend: function ( xhr ) {
@@ -47,7 +48,7 @@ $('#send-comment').click(function(e){
   $.ajax({
     type: 'POST',
     url: '/comments',
-    data: { user_id: user, post: comment },
+    data: { user_id: user, post: comment, ad_id: ad },
     dataType: 'script'
   })
 })
