@@ -1,0 +1,52 @@
+
+body{
+  font-family: 'Bebas Neue', cursive;
+
+
+
+  }
+
+#search-main{
+
+  background-size: cover;
+  background-image: url('https://storage.googleapis.com/www-paredro-com/uploads/2015/10/freelance.jpg');
+  opacity: 0.9;
+  height: 600px;
+
+}
+
+h1{
+  font-size: 5em;
+}
+
+  h2{
+    font-size: 4em;
+    text-decoration: underline;
+  }
+
+  h3{
+    font-size: 3em;
+  }
+
+  h4{
+    font-size: 1.5em;
+  }
+
+#navbar1{
+  height: 80px;
+
+    color: white;
+}
+
+
+
+footer{
+  background-color: #0D0D0D;
+  color: #E9DFDF;
+  height: 180px;
+}
+
+img{
+  height: 220px;
+  width: 220px;
+}
