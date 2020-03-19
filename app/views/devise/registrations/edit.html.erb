@@ -1,4 +1,6 @@
-<div class="container">
+
+
+<div class="col-lg-6 my-4">
 
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -13,23 +15,23 @@
   <br>
 
   <div class="form-group">
-    <%= f.label :"Cuéntanos de tí" %><br />
+    <h4><strong><%= f.label :"Cuéntanos de tí" %><br /></strong></h4>
     <%= f.text_field :resume, class:'form-control' %>
   </div>
 
   <div class="form-group">
-    <%= f.label :"Cuánto cuesta tu clase?" %><br />
+    <h4><strong><%= f.label :"Cuánto cuesta tu clase?" %><br /></strong></h4>
     <%= f.number_field :fee, class:'form-control' %>
   </div>
 
   <div class="form-group">
-    <%= f.label :"¿Cómo te contactamos?" %><br />
+    <h4><strong><%= f.label :"¿Cómo te contactamos?" %><br /></strong></h4>
     <%= f.text_field :contact, class:'form-control' %>
   </div>
 
 
   <div class="field">
-    <%= f.label :"Actual contraseña" %> <br>
+    <h4><strong><%= f.label :"Actual contraseña" %> <br></strong></h4>
     <%= f.password_field :current_password, class:'form-control' %>
   </div>
 

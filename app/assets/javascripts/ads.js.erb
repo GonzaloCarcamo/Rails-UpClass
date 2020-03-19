@@ -10,14 +10,19 @@ $(document).on('turbolinks:load', function() {
           type: "get",
           url: "/ads",
           data: { q: $(this).val() },
-          dataType: "script" })}
+          dataType: "script" })
+
+      $('html, body').animate({
+        scrollTop: $("#ads").offset().top
+      }, 200); }
 
       if($(this).val().length == 0){
         $.ajax({
           type: "get",
           url: "/ads",
-          dataType: "script" }); }
-
+          dataType: "script" })
+      $('html, body').animate({scrollTop:0}, '300')
+     }
 
 
 })

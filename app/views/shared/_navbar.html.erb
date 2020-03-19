@@ -1,37 +1,42 @@
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav mr-auto container">
-      <li>
-      <a class="navbar-brand" href="#">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <a class="nav-link" href="#">Hola!<strong><% if user_signed_in? %>
+    <%= current_user.name %>
+    <% end %>
+  </strong>Bienvenido a UpClass! <span class="sr-only">(current)</span></a>
+  <a class="navbar-brand" href="#"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-        Hola!<strong><% if user_signed_in? %>
-          <%= current_user.name %>
-          <% end %>
-        </strong>Bienvenido a UpClass!</a>
-        </li>
-
-      <li class="nav-item active">
-         <a class=""><h4><%= link_to 'Inicio', root_path %></h4></a>
-      </li>
-      <li class="nav-item">
-       <a class=""><h4><%= link_to 'Nuevo Anuncio', new_ad_path %></h4></a>
-      </li>
-      <li class="nav-item">
-       <a class=""><h4><%= link_to 'Editar perfil', edit_user_registration_path %></h4></a>
-      </li>
-
-      <li class="nav-item">
-   <a class=""><h4><%= link_to 'Logout', destroy_user_session_path, method: :delete %></h4></a>
-  </li>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
 
 
-        </ul>
+    <ul class="navbar-nav mr-auto">
+
+      <form class="form-inline my-2 my-lg-0">
         <input data-remote="true"
-        class="form-control w-75 ml-1 mr-1" type="text" placeholder="¿Qué deseas aprender? Ej:
+        class="form-control w-70 ml-5 mr-5" type="text" placeholder="¿Qué deseas aprender? Ej:
         álgebra, batería, Ruby on Rails, Yoga, etc." aria-label="Search" name="q">
         </input>
+      </form>
+      <li class="nav-item">
+        <a class="mr-3"><h4><%= link_to 'Inicio', root_path %></h4></a>
+      </li>
+
+      <li class="nav-item">
+       <a class="mr-3"><h4><%= link_to 'Nuevo Anuncio', new_ad_path %></h4></a>
+      </li>
+
+      <li class="nav-item">
+<a class="mr-3"><h4><%= link_to 'Editar perfil', edit_user_registration_path %></h4></a>
+      </li>
+
+      <li class="nav-item">
+   <a class="mr-3"><h4><%= link_to 'Logout', destroy_user_session_path, method: :delete %></h4></a>
+      </li>
+    </ul>
 
   </div>
 </nav>

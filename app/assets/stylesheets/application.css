@@ -9,8 +9,8 @@ body{
 #search-main{
 
   background-size: cover;
-  background-image: url('hero.jpg');
-  height: 250px;
+  background-image: url('https://storage.googleapis.com/www-paredro-com/uploads/2015/10/freelance.jpg');
+  height: 600px;
 
 }
 
@@ -42,7 +42,7 @@ h1{
 footer{
   background-color: #0D0D0D;
   color: #E9DFDF;
-  height: 60px;
+  height: 50px;
 }
 
 img{
