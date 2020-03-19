@@ -10,6 +10,7 @@ body{
 
   background-size: cover;
   background-image: url('https://storage.googleapis.com/www-paredro-com/uploads/2015/10/freelance.jpg');
+  opacity: 0.9;
   height: 600px;
 
 }
@@ -42,14 +43,10 @@ h1{
 footer{
   background-color: #0D0D0D;
   color: #E9DFDF;
-  height: 50px;
+  height: 180px;
 }
 
 img{
   height: 220px;
   width: 220px;
-}
-
-.hero{
-  background-image: url('foto.jpg');
 }

@@ -10,6 +10,10 @@ class CommentsController < InheritedResources::Base
     end
   end
 
+  def destroy
+    @comment.destroy
+  end
+
   private
 
     def comment_params

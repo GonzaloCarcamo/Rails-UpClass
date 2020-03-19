@@ -15,12 +15,7 @@
 
     <ul class="navbar-nav mr-auto">
 
-      <form class="form-inline my-2 my-lg-0">
-        <input data-remote="true"
-        class="form-control w-70 ml-5 mr-5" type="text" placeholder="¿Qué deseas aprender? Ej:
-        álgebra, batería, Ruby on Rails, Yoga, etc." aria-label="Search" name="q">
-        </input>
-      </form>
+
       <li class="nav-item">
         <a class="mr-3"><h4><%= link_to 'Inicio', root_path %></h4></a>
       </li>
@@ -37,6 +32,13 @@
    <a class="mr-3"><h4><%= link_to 'Logout', destroy_user_session_path, method: :delete %></h4></a>
       </li>
     </ul>
+
+
+      <input data-remote="true"
+      class="form-control w-50 ml-3" type="text" placeholder="¿Qué deseas aprender? Ej:
+      álgebra, batería, Ruby on Rails, Yoga, etc." aria-label="Search" name="q">
+      </input>
+
 
   </div>
 </nav>

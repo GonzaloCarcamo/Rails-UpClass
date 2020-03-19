@@ -47,8 +47,8 @@
 
 
 
-<div class="container">
-  <h3 class=""><strong>Comentarios</strong></h3>
+<div class="">
+  <h3 class="text-center"><strong>Comentarios</strong></h3>
   <input class="w-100 my-2" id="comment" type="text" name="" value="">
   <button  class="btn btn-primary w-100" type="submit" id="send-comment">Agregar comentario</button>
 </div>
@@ -62,7 +62,7 @@
   <p><input type="hidden"  name="" value="<%= comment.ad_id %>" id="ad-value" aria-hidden="true"></p>
 
     <% if comment.user_id == user.id && @ad.user_id %>
-      <div class="jumbotron jumbotron-fluid container" id="comment-list">
+      <div class="jumbotron jumbotron-fluid" id="comment-list">
         <h4><%= comment.post %></h4>
         <h6><%= comment.created_at %></h6>
 
