@@ -10,14 +10,14 @@ $(document).on('turbolinks:load', function() {
           type: "get",
           url: "/ads",
           data: { q: $(this).val() },
-          dataType: "script" })
+          dataType: "script" })}
 
       if($(this).val().length == 0){
         $.ajax({
           type: "get",
           url: "/ads",
           dataType: "script" }); }
-    }
+
 
 
 })
