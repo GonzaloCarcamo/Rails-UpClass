@@ -1,35 +1,39 @@
 <!--USER PROFILE -->
 
-<% @users.each do |user| %>
-  <% if user.id == @ad.user_id %>
+<main id="show-main" style="height:400px";>
 
-    <div class="container">
+  <% @users.each do |user| %>
+    <% if user.id == @ad.user_id %>
 
-      <div class="row my-2">
-        <div class="col-lg-4 my-4">
+      <div class="container">
 
-          <% if @ad.image.attached? %>
-            <p class=""><%= image_tag @ad.image, class:'rounded-circle'%></p>
-          <%else%>
-            <p><%= image_tag 'profile.png', class:'rounded-circle'%></p>
-          <% end %>
-        </div>
+        <div class="row my-5">
+          <div class="col-lg-4 my-4">
 
-        <div class="col-lg-6 my-5">
-
-          <h3 class=""><strong><%= user.name %></strong></h3>
-
-          <h4>"<%= user.resume %>."</h4>
-
-          <h5><i class="fas fa-money-bill fa-2x mr-3 text-secondary"></i><strong>$<%= user.fee %></strong> Pesos</h5>
-
-          <h5><i class="fab fa-whatsapp fa-2x mr-3 text-success"></i><strong><%= user.contact %></strong></h5>
-
-          <div class="my-4">
-            <% if @ad.instruction.attached? %>.
-              <i class="fas fa-file-pdf fa-2x mr-3 text-danger"></i>
-              <a href="<%= rails_blob_path(@ad.instruction, disposition: 'attachment')%>">Descargar PDF</a>
+            <% if @ad.image.attached? %>
+              <p class=""><%= image_tag @ad.image, class:'rounded-circle'%></p>
+            <%else%>
+              <p><%= image_tag 'profile.png', class:'rounded-circle'%></p>
             <% end %>
+          </div>
+
+          <div class="col-lg-6 my-5">
+
+            <h3 class=""><strong><%= user.name %></strong></h3>
+
+            <h4>"<%= user.resume %>."</h4>
+
+            <h5><i class="fas fa-money-bill fa-3x mr-3 text-secondary"></i><strong>$<%= user.fee %></strong> Pesos</h5>
+
+            <h5><i class="fab fa-whatsapp fa-3x mr-3 text-success"></i><strong><%= user.contact %></strong></h5>
+
+            <div class="my-4">
+              <% if @ad.instruction.attached? %>.
+                <i class="fas fa-file-pdf fa-3x mr-3 text-danger"></i>
+                <a href="<%= rails_blob_path(@ad.instruction, disposition: 'attachment')%>">Descargar PDF</a>
+              <% end %>
+
+            </div>
 
           </div>
 
@@ -37,21 +41,19 @@
 
       </div>
 
-    </div>
-
+    <%end%>
   <%end%>
-<%end%>
+
+
+</main>
+
 
 
 <!--PROFILE COMMENTS -->
 
 
 
-<div class="">
-  <h3 class="text-center"><strong>Comentarios</strong></h3>
-  <input class="w-100 my-2" id="comment" type="text" name="" value="">
-  <button  class="btn btn-primary w-100" type="submit" id="send-comment">Agregar comentario</button>
-</div>
+<h2 class="text-center"><strong>Comentarios</strong></h2>
 <p><input type="hidden"  name="" value="<%= @ad.id %>" id="p" aria-hidden="true"></p>
 <% @users.each do |user| %>
   <p><input type="hidden"  name="" value="<%= user.id %>" id="user" aria-hidden="true"></p>
@@ -62,9 +64,9 @@
   <p><input type="hidden"  name="" value="<%= comment.ad_id %>" id="ad-value" aria-hidden="true"></p>
 
     <% if comment.user_id == user.id && @ad.user_id %>
-      <div class="jumbotron jumbotron-fluid" id="comment-list">
+      <div class="jumbotron jumbotron-fluid container" id="comment-list">
         <h4><%= comment.post %></h4>
-        <h6><%= comment.created_at %></h6>
+        <h6 class="text-right"><i>Publicado con fecha<%= comment.created_at %></i></h6>
 
 
 
@@ -72,3 +74,11 @@
     <%end%>
   <%end%>
 <%end%>
+
+<div class="container">
+
+  <input class="w-100 my-2" id="comment" type="text" name="" value="">
+  <button  class="btn btn-primary w-100" type="submit" id="send-comment">Agregar comentario</button>
+</div>
+
+<br><br><br><br><br>

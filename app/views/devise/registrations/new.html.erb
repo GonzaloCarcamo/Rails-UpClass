@@ -1,58 +1,61 @@
+<main id="registration-main" style="height:955px";>
+
+  <div id="form" class="container col-lg-6 col-md-6 col-sm-6">
+
+    <br><br>
+
+  <h3 class="">Regístrate <br> <h4> <%= render "devise/shared/links" %> </h4> </h3>
 
 
-<div class="container col-lg-6 col-md-6 col-sm-6">
 
-  <br><br>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-<h3 class="">Regístrate <br> <h4> <%= render "devise/shared/links" %> </h4> </h3>
+    <div class="form-group">
+      <%= f.label :"Nombre y apellidos" %><br />
+      <%= f.text_field :name, class:'form-control' %>
+    </div>
 
+    <div class="form-group">
+      <%= f.label :Email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'form-control' %>
+    </div>
 
+    <div class="form-group">
+      <%= f.label :Contraseña %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> caracteres como mínimo)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password", class:'form-control' %>
+    </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="form-group">
+      <%= f.label :"Confirma tu contraseña" %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class:'form-control' %>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :"Nombre y apellidos" %><br />
-    <%= f.text_field :name, class:'form-control' %>
+    <div class="form-group">
+      <%= f.label :"Cuéntanos de tí" %><br />
+      <%= f.text_field :resume, class:'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :"Cuánto cuesta tu clase?" %><br />
+      <%= f.number_field :fee, class:'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :"¿Cómo te contactamos?" %><br />
+      <%= f.text_field :contact, class:'form-control' %>
+    </div>
+
+    <div class="actions form-group">
+      <%= f.submit "Registrarme", class:'form-control btn btn-primary' %>
+
+    </div>
+  <% end %>
+
   </div>
 
-  <div class="form-group">
-    <%= f.label :Email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'form-control' %>
-  </div>
 
-  <div class="form-group">
-    <%= f.label :Contraseña %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> caracteres como mínimo)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password", class:'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :"Confirma tu contraseña" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", class:'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :"Cuéntanos de tí" %><br />
-    <%= f.text_field :resume, class:'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :"Cuánto cuesta tu clase?" %><br />
-    <%= f.number_field :fee, class:'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :"¿Cómo te contactamos?" %><br />
-    <%= f.text_field :contact, class:'form-control' %>
-  </div>
-
-  <div class="actions form-group">
-    <%= f.submit "Registrarme", class:'form-control btn btn-primary' %>
-
-  </div>
-<% end %>
-
-</div>
+</main>

@@ -1,74 +1,82 @@
 <!-- Formulario inscripción usuario -->
+<main id="new-ad-main" style="height:850px";>
+
+  <div id="form" class="container col-lg-6 col-md-6 col-sm-6">
+
+        <br><br>
+
+  <h3 class="text-center">Ingresa tu anuncio!</h3>
 
 
 
-<div class="col-lg-6 my-5">
+  <%= form_with(model: ad, 'data-remote': true) do |form| %>
+    <% if ad.errors.any? %>
+      <div id="error_explanation">
+        <h3><%= pluralize(ad.errors.count, "error") %> prohibited this ad from being saved:</h3>
+        <ul>
+        <% ad.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-<%= form_with(model: ad, 'data-remote': true) do |form| %>
-  <% if ad.errors.any? %>
-    <div id="error_explanation">
-      <h3><%= pluralize(ad.errors.count, "error") %> prohibited this ad from being saved:</h3>
-      <ul>
-      <% ad.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="form-group">
+      <h4 class=""><strong><%= form.label :"Qué ofreces?"%></strong></h4>
+
+      <h4><%= form.text_field :title, class:'form-control'%></h4>
     </div>
-  <% end %>
 
-  <div class="form-group">
-    <h4 class=""><strong><%= form.label :"Qué ofreces?"%></strong></h4>
+    <div class="form-group">
+      <h4><strong><label for="ad_Elige una categoría">Elige una categoría</label></strong></h4>
+      <p class="my-3 form-control"><select data-remote="true" name="ad[category]" id="ad_category">
+        <option value="">selecciona una categoría</option>
+        <option value="Musica">Musica</option>
+        <option value="Deporte">Deporte</option>
+        <option value="Desarrollo WEB">Desarrollo WEB</option>
+        <option value="Ciencias">Ciencias</option>
+        <option value="Ingles">Ingles</option>
+        <option value="Otros Idiomas">Otros Idiomas</option>
+        <option value="Aprendizaje Diferencial">Aprendizaje Diferencial</option>
+        <option value="Coaching">Coaching</option>
+        <option value="Asesorías">Asesorías</option></select></p>
+    </div>
 
-    <h4><%= form.text_field :title, class:'form-control'%></h4>
-  </div>
+    <div id="tags" class="form-group">
 
-  <div class="form-group">
-    <h4><strong><label for="ad_Elige una categoría">Elige una categoría</label></strong></h4>
-    <p class="my-3 form-control"><select data-remote="true" name="ad[category]" id="ad_category">
-      <option value="">selecciona una categoría</option>
-      <option value="Musica">Musica</option>
-      <option value="Deporte">Deporte</option>
-      <option value="Desarrollo WEB">Desarrollo WEB</option>
-      <option value="Ciencias">Ciencias</option>
-      <option value="Ingles">Ingles</option>
-      <option value="Otros Idiomas">Otros Idiomas</option>
-      <option value="Aprendizaje Diferencial">Aprendizaje Diferencial</option>
-      <option value="Coaching">Coaching</option>
-      <option value="Asesorías">Asesorías</option></select></p>
-  </div>
-
-  <div id="tags" class="form-group">
-
-    <% @tags.each do |tag|%>
-          <%= form.fields_for :ads_tags do |t|%>
-          <div class="<%=tag.category_id%>"
-          <%= t.label tag.title %>
-          <%= t.check_box tag.id, data: {category: tag.category_id}%>
+      <% @tags.each do |tag|%>
+            <%= form.fields_for :ads_tags do |t|%>
+            <div class="<%=tag.category_id%>"
+            <%= t.label tag.title %>
+            <%= t.check_box tag.id, data: {category: tag.category_id}%>
+          <% end%>
+          </div>
         <% end%>
-        </div>
-      <% end%>
-  </div>
+    </div>
 
 
 
 
 
-  <div class="form-group">
-    <h4><strong><%= form.label :"Necesitamos tu foto!" %></strong></h4>
-    <%= form.file_field :image, class:'form-control' %>
-  </div>
+    <div class="form-group">
+      <h4><strong><%= form.label :"Necesitamos tu foto!" %></strong></h4>
+      <%= form.file_field :image, class:'form-control' %>
+    </div>
 
-  <div class="form-group">
-    <h4><strong><%= form.label :"Certificaciones (opcional)" %></strong></h4>
-    <%= form.file_field :instruction, class:'form-control' %>
-  </div>
+    <div class="form-group">
+      <h4><strong><%= form.label :"Certificaciones (opcional)" %></strong></h4>
+      <%= form.file_field :instruction, class:'form-control' %>
+    </div>
 
-  <div class="actions form-group">
-    <p><%= form.submit 'Guardar', class: 'btn btn-primary form-control' %></p>
-    <p><%= link_to 'Inicio', ads_path , class: 'btn btn-primary form-control' %></p>
+    <div class="actions form-group">
+      <p><%= form.submit 'Guardar', class: 'btn btn-primary form-control' %></p>
+      <p><%= link_to 'Inicio', ads_path , class: 'btn btn-primary form-control' %></p>
 
-  </div>
+    </div>
 
-  <% end %>
+    <% end %>
 
-  </div>
+    </div>
+
+
+</main>

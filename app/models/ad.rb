@@ -4,7 +4,8 @@ class Ad < ApplicationRecord
     has_one_attached :image
     has_one_attached :instruction
     has_and_belongs_to_many :tags, presence: true
-    has_many :comments
+    has_many :comments, dependent: :destroy
+
 
     validates :title, presence: true
     validates :category, presence: true
