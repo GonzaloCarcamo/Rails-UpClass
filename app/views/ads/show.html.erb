@@ -52,9 +52,9 @@
   <input class="w-100 my-2" id="comment" type="text" name="" value="">
   <button  class="btn btn-primary w-100" type="submit" id="send-comment">Agregar comentario</button>
 </div>
-<p><input type=""  name="hidden" value="<%= @ad.id %>" id="p" aria-hidden="true"></p>
+<p><input type="hidden"  name="" value="<%= @ad.id %>" id="p" aria-hidden="true"></p>
 <% @users.each do |user| %>
-  <p><input type=""  name="hidden" value="<%= user.id %>" id="user" aria-hidden="true"></p>
+  <p><input type="hidden"  name="" value="<%= user.id %>" id="user" aria-hidden="true"></p>
 <%end%>
 
 <% @users.each do |user| %>
