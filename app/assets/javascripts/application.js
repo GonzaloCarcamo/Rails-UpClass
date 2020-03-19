@@ -17,7 +17,6 @@
 //= require jquery/dist/jquery
 //= require ads.js.erb
 //= require_tree
-
 $(document).on('turbolinks:load', function() {
 
 $('#tags').children().hide()
@@ -38,7 +37,7 @@ $('#send-comment').click(function(e){
 
   var comment = $('#comment').val()
   var user = $('#user').val()
-  var ad = $('#ad-value').val()
+  var ad = $('#p').val()
   var token = $( 'meta[name="csrf-token"]' ).attr( 'content' );
     $.ajaxSetup( {
       beforeSend: function ( xhr ) {

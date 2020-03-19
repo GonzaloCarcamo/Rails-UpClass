@@ -52,9 +52,9 @@
   <input class="w-100 my-2" id="comment" type="text" name="" value="">
   <button  class="btn btn-primary w-100" type="submit" id="send-comment">Agregar comentario</button>
 </div>
-
+<p><input type=""  name="" value="<%= @ad.id %>" id="p" aria-hidden="true"></p>
 <% @users.each do |user| %>
-  <p><input type="hidden"  name="" value="<%= user.id %>" id="user" aria-hidden="true"></p>
+  <p><input type=""  name="" value="<%= user.id %>" id="user" aria-hidden="true"></p>
 <%end%>
 
 <% @users.each do |user| %>
@@ -65,8 +65,7 @@
       <div class="jumbotron jumbotron-fluid container" id="comment-list">
         <h4><%= comment.post %></h4>
         <h6><%= comment.created_at %></h6>
-        <h4><%= comment.user.name %></h4>
-
+          <h4><%= comment.user.name %></h4>
 
 
       </div>
