@@ -11,7 +11,7 @@ class Ad < ApplicationRecord
     validates :category, presence: true
     accepts_nested_attributes_for :tags
     validates_presence_of :tags
-validates_associated :tags
+    validates_associated :tags
 
  end
 

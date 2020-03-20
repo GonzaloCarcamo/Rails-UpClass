@@ -1,29 +1,22 @@
 <!-- Formulario inscripción usuario -->
 <main id="new-ad-main" style="height:850px";>
+  <div id="form" class="container col-lg-6 col-md-6 col-sm-6"><br><br>
+    <h3 class="text-center">Ingresa tu anuncio!</h3>
 
-  <div id="form" class="container col-lg-6 col-md-6 col-sm-6">
-
-        <br><br>
-
-  <h3 class="text-center">Ingresa tu anuncio!</h3>
-
-
-
-  <%= form_with(model: ad, 'data-remote': true) do |form| %>
-    <% if ad.errors.any? %>
-      <div id="error_explanation">
-        <h3><%= pluralize(ad.errors.count, "error") %> prohibited this ad from being saved:</h3>
-        <ul>
-        <% ad.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+    <%= form_with(model: ad, 'data-remote': true) do |form| %>
+      <% if ad.errors.any? %>
+        <div id="error_explanation">
+          <h3><%= pluralize(ad.errors.count, "error") %> prohibited this ad from being saved:</h3>
+          <ul>
+            <% ad.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
         <% end %>
-        </ul>
-      </div>
-    <% end %>
 
     <div class="form-group">
       <h4 class=""><strong><%= form.label :"Qué ofreces?"%></strong></h4>
-
       <h4><%= form.text_field :title, class:'form-control'%></h4>
     </div>
 
@@ -54,10 +47,6 @@
         <% end%>
     </div>
 
-
-
-
-
     <div class="form-group">
       <h4><strong><%= form.label :"Necesitamos tu foto!" %></strong></h4>
       <%= form.file_field :image, class:'form-control' %>
@@ -73,10 +62,7 @@
       <p><%= link_to 'Inicio', ads_path , class: 'btn btn-primary form-control' %></p>
 
     </div>
-
     <% end %>
-
-    </div>
-
+  </div>
 
 </main>

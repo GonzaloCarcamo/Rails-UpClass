@@ -6,11 +6,11 @@ class AdsController < ApplicationController
   def index
     @ads = unless params[:q]
       Ad.all.order("created_at DESC")
-      else
-        Ad.includes(:tags).where('tags.title ilike ? OR category ilike ?' ,
-          "%#{params[:q]}%", "%#{params[:q]}%").references(:tags)
-        end
-      end
+    else
+      Ad.includes(:tags).where('tags.title ilike ? OR category ilike ?' ,
+        "%#{params[:q]}%", "%#{params[:q]}%").references(:tags)
+    end
+  end
 
   def show
     @ad = Ad.find(params[:id])
@@ -40,7 +40,7 @@ class AdsController < ApplicationController
     params[:ad][:ads_tags].each do |id, value|
       @ad.tags.push Tag.find(id) if value == '1'
 
-    end
+  end
 
     respond_to do |format|
       if @ad.save
@@ -92,13 +92,12 @@ class AdsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_ad
-      @ad = Ad.find(params[:id])
-    end
+  def set_ad
+    @ad = Ad.find(params[:id])
+  end
 
     # Only allow a list of trusted parameters through.
-    def ad_params
-      params.require(:ad).permit(:title, :category, :tag, :image, :instruction)
-    end
-
+  def ad_params
+    params.require(:ad).permit(:title, :category, :tag, :image, :instruction)
+  end
 end

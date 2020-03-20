@@ -1,36 +1,38 @@
 <!--Ads-->
 
 <main role="main" id="ad_<%= ad.id %>">
-  <div id="ad-list" class="jumbotron" style="padding: 20px";>
+  <div id="ad-list" class="jumbotron" style="padding: 20px" ;=";">
     <h3>
       <strong>
-      <% ad.tags.each do |tag| %>
+        <% ad.tags.each do |tag| %>
           [<%= tag.title %>]
-      <% end %>
-    </strong>
-  </h3>
+        <% end %>
+      </strong>
+    </h3>
 
-    <p><strong><%= ad.category %></strong></p>
+    <p>
+      <strong><%= ad.category %></strong>
+    </p>
 
     <h4>"<%=ad.title %>"</h4>
 
     <div id="options" class="text-right">
 
-    <button type="button" class="btn btn-outline-primary">
-      <%= link_to 'detalle', ad %>
-    </button>
+      <button type="button" class="btn btn-outline-primary">
+        <%= link_to 'detalle', ad %>
+      </button>
 
-    <% if can? :edit, ad %>
-    <button type="button" class="btn btn-outline-primary">
-      <%= link_to 'editar', edit_ad_path(ad) %>
-    </button>
-    <% end %>
+      <% if can? :edit, ad %>
+        <button type="button" class="btn btn-outline-primary">
+          <%= link_to 'editar', edit_ad_path(ad) %>
+        </button>
+      <% end %>
 
-    <% if can? :destroy, ad %>
-    <button type="button" class="btn btn-outline-primary">
-      <%= link_to 'eliminar', ad, method: :delete, data: { confirm: 'Confirma la eliminación del anuncio?' } %>
-    </button>
-    <% end %>
+      <% if can? :destroy, ad %>
+        <button type="button" class="btn btn-outline-primary">
+          <%= link_to 'eliminar', ad, method: :delete, data: { confirm: 'Confirma la eliminación del anuncio?' } %>
+        </button>
+      <% end %>
 
     </div>
 
