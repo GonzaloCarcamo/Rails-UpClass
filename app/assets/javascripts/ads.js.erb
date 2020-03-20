@@ -1,31 +1,26 @@
 
 $(document).on('turbolinks:load', function() {
 
-    $('[name=q]').on('keyup', function(e){
-      e.preventDefault()
+  $('[name=q]').on('keyup', function(e){
+    e.preventDefault()
+    if($(this).val().length > 2 ){
 
-      if($(this).val().length > 2 ){
-
-        $.ajax({
+      $.ajax({
           type: "get",
           url: "/ads",
           data: { q: $(this).val() },
           dataType: "script" })
 
-      $('html, body').animate({
-        scrollTop: $("#ads").offset().top
+  $('html, body').animate({
+    scrollTop: $("#ads").offset().top
       }, 200); }
 
-      if($(this).val().length == 0){
-        $.ajax({
+  if($(this).val().length == 0){
+    $.ajax({
           type: "get",
           url: "/ads",
           dataType: "script" })
-      $('html, body').animate({scrollTop:0}, '300')
-     }
+    $('html, body').animate({scrollTop:0}, '300')}
 
-
+    })
 })
-
-
-  })

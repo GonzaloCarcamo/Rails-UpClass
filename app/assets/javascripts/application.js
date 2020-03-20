@@ -19,37 +19,33 @@
 //= require_tree
 $(document).on('turbolinks:load', function() {
 
-$('#tags').children().hide()
-
-$("#ad_category").change(function(){
-var select = $('#ad_category')[0].options.selectedIndex
-var tag = $(`.${select}`).children()[1].dataset.category
-
-
-if (select == tag) {
   $('#tags').children().hide()
-  $(`.${select}`).show()
-}
-})
 
-$('#send-comment').click(function(e){
-  e.preventDefault()
+  $("#ad_category").change(function(){
+    var select = $('#ad_category')[0].options.selectedIndex
+    var tag = $(`.${select}`).children()[1].dataset.category
 
-  var comment = $('#comment').val()
-  var user = $('#user').val()
-  var ad = $('#p').val()
-  var token = $( 'meta[name="csrf-token"]' ).attr( 'content' );
-    $.ajaxSetup( {
+    if (select == tag) {
+      $('#tags').children().hide()
+      $(`.${select}`).show() }
+    })
+
+    $('#send-comment').click(function(e){
+      e.preventDefault()
+
+      var comment = $('#comment').val()
+      var user = $('#user').val()
+      var ad = $('#p').val()
+      var token = $( 'meta[name="csrf-token"]' ).attr( 'content' );
+      $.ajaxSetup( {
       beforeSend: function ( xhr ) {
-        xhr.setRequestHeader( 'X-CSRF-Token', token );
-      }
+        xhr.setRequestHeader( 'X-CSRF-Token', token ); }
     });
-  $.ajax({
-    type: 'POST',
-    url: '/comments',
-    data: { user_id: user, post: comment, ad_id: ad },
-    dataType: 'script'
-  })
-})
 
+      $.ajax({
+        type: 'POST',
+        url: '/comments',
+        data: { user_id: user, post: comment, ad_id: ad },
+        dataType: 'script'})
+    })
 })
